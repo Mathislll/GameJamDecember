@@ -49,6 +49,10 @@ public class BulletScript : MonoBehaviour
             collider.gameObject.GetComponent<Player_Stat>().TakeHit(damage);
             Destroy(gameObject);
         }
+        else if (collider.gameObject.CompareTag("Bomb"))
+        {
+            collider.GetComponent<bombaScript>().MacronExplosion();
+        }
 
     }
 }

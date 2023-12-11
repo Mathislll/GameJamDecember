@@ -21,7 +21,7 @@ public class bombaScript : MonoBehaviour
         
     }
 
-    private void MacronExplosion()
+    public void MacronExplosion()
     {
         GameObject bubul = Instantiate(bubulParticul,this.transform);
         GameObject boom = Instantiate(boomParticul, this.transform);
