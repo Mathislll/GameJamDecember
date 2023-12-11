@@ -8,10 +8,12 @@ public class bombaScript : MonoBehaviour
     private GameObject bubulParticul;
     [SerializeField]
     private GameObject boomParticul;
+    [SerializeField]
+    private GameObject obstacleToDestroy;
 
     void Start()
     {
-        MacronExplosion();
+        
     }
 
     void Update()
@@ -25,6 +27,15 @@ public class bombaScript : MonoBehaviour
         GameObject boom = Instantiate(boomParticul, this.transform);
         bubul.transform.parent = null;
         boom.transform.parent = null;
-        Destroy(gameObject);
+        Destroy(obstacleToDestroy.gameObject);
+        Destroy(this.gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "projectile")
+        {
+            MacronExplosion();
+        }
     }
 }
