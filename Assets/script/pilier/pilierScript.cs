@@ -15,8 +15,11 @@ public class pilierScript : MonoBehaviour
     private GameObject topPillard;
     [SerializeField]
     private GameObject bottomPillard;
+    [SerializeField]
+    private Rigidbody rb;
 
     private float[] limitPillardPos = new float[] {4.25f,-4.25f};
+    private const float spawnPosition = 30;
 
     void Start()
     {
@@ -32,12 +35,22 @@ public class pilierScript : MonoBehaviour
             Debug.Break();
         }
 
+        speed = speed * -10f;
         topPillard.transform.localPosition += new Vector3(0,pillardGap,0);
-        transform.position = new Vector3(0,pillardPos,0);
+        transform.position = new Vector3(spawnPosition,pillardPos,0);
     }
 
     void Update()
     {
-        
+        if(transform.position.x < -20)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        //transform.Translate(speed,0,0);
+        rb.velocity = new Vector3(speed * Time.fixedDeltaTime,0,0);
     }
 }
