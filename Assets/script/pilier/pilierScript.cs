@@ -31,8 +31,8 @@ public class pilierScript : MonoBehaviour
         }
         if(pillardPos <= 0)
         {
-            Debug.LogError("les pilier ne laissent pas d'ouverture");
-            Debug.Break();
+            //Debug.LogError("les pilier ne laissent pas d'ouverture");
+            //Debug.Break();
         }
 
         speed = speed * -10f;
@@ -52,5 +52,11 @@ public class pilierScript : MonoBehaviour
     {
         //transform.Translate(speed,0,0);
         rb.velocity = new Vector3(speed * Time.fixedDeltaTime,0,0);
+    }
+
+    public void setPillard(float gap, float pos)
+    {
+        this.pillardGap = gap;
+        this.pillardPos = pos;
     }
 }
