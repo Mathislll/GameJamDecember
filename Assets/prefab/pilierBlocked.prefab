@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4036897425943309608}
   - component: {fileID: 7007329219278855325}
   m_Layer: 6
-  m_Name: pilier
+  m_Name: pilierBlocked
   m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
