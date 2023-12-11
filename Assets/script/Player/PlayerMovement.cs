@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdScript : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody myRigidbody;
     public float flapStrenght;
