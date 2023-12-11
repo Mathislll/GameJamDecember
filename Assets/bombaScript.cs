@@ -30,12 +30,4 @@ public class bombaScript : MonoBehaviour
         Destroy(obstacleToDestroy.gameObject);
         Destroy(this.gameObject);
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "projectile")
-        {
-            MacronExplosion();
-        }
-    }
 }
