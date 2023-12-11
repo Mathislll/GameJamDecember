@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_Mathis.unity
     guid: 846c9a702badfbf45aebf2c24d424028
+  - enabled: 1
+    path: Assets/Scenes/Level_01.unity
+    guid: cdaaf9b2a3850cf43932750f4d86fcd4
   m_configObjects: {}
