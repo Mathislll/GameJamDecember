@@ -47,6 +47,6 @@ public class spawnerScript : MonoBehaviour
     {
         randomGap = UnityEngine.Random.Range(1f, 6f);
         randomPosition = UnityEngine.Random.Range(-4.20f, 4.20f);
-        Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
+        //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
     }
 }
