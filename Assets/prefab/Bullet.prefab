@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3250668190463438628}
   - component: {fileID: 4202468475937200650}
   - component: {fileID: 8688133713843160538}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,10 @@ PrefabInstance:
     - target: {fileID: 1262846755526404, guid: 246abbe77b657aa45808a0d3c34e62d8, type: 3}
       propertyPath: m_Name
       value: vfx_Projectile_LaserRed_Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1262846755526404, guid: 246abbe77b657aa45808a0d3c34e62d8, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4090788144472736, guid: 246abbe77b657aa45808a0d3c34e62d8, type: 3}
       propertyPath: m_LocalPosition.x

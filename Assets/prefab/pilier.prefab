@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2952307577162023375}
   - component: {fileID: 4036897425943309608}
   - component: {fileID: 7007329219278855325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pilier
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2209668218949417243}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 99999
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 500025096506369231}
   - component: {fileID: 4922096557573025886}
   - component: {fileID: 2716901355676494726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottomPilier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 598120422046589752}
   - component: {fileID: 1268159235141618045}
   - component: {fileID: 1623164089608631656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: topPilier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
