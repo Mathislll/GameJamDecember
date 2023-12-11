@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player_Stat : MonoBehaviour
 {
-    public float health = 10f;
+    public float health = 3f;
+    public Transform respawnPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +25,20 @@ public class Player_Stat : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else
+        {
+            Respawn();
+        }
     }
+
+    public void TakeHeal(float heal)
+    {
+        health += heal;
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnPoint.position;
+    }
+
 }
