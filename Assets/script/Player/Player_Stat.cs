@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player_Stat : MonoBehaviour
 {
-    public float health = 3f;
+    public float life = 3f;
     public Transform respawnPoint;
     public Rigidbody rb;
     public SphereCollider sphereCollider;
@@ -58,8 +58,8 @@ public class Player_Stat : MonoBehaviour
 
     public void TakeHit(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        life -= damage;
+        if (life <= 0)
         {
             Destroy(gameObject);
         }
@@ -71,7 +71,7 @@ public class Player_Stat : MonoBehaviour
 
     public void TakeHeal(float heal)
     {
-        health += heal;
+        life += heal;
     }
 
 
