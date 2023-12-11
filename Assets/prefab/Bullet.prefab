@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7139105632066479277}
   - component: {fileID: 4202468475937200650}
   - component: {fileID: 8688133713843160538}
+  - component: {fileID: 6747510871700412504}
   m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
@@ -125,8 +126,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  lifeTime: 5
+  lifeTime: 1
   rb: {fileID: 0}
+  isPlayerBullet: 0
   damage: 1
 --- !u!135 &6747510871700412504
 SphereCollider:
