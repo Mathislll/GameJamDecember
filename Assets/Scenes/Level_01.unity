@@ -741,6 +741,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9851899539391b647bdfe43489350a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
+  pillardGap: 0
+  topPillard: {fileID: 1354636140}
+  bottomPillard: {fileID: 923738796}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
