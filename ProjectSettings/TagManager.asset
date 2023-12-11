@@ -11,11 +11,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - projectile
   - Water
   - UI
-  - 
-  - 
+  - obstacle
+  - postProcess
   - 
   - 
   - 
