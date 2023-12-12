@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player_Stat : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Player_Stat : MonoBehaviour
     public float delayBeforeRespawn = 3f;
 
     private GameManager gameManager;
+    public UnityEvent onPlayerDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +71,7 @@ public class Player_Stat : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
+            onPlayerDeath.Invoke();
             Die();
         }
         else
@@ -79,7 +82,7 @@ public class Player_Stat : MonoBehaviour
 
     public void Die()
     {
-        gameManager.LoadNextLevel("Level_01");
+
     }
 
     public void TakeHeal(float heal)
