@@ -9,7 +9,7 @@ public class ObstacleDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("obstacle"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             GetComponent<Player_Stat>().TakeHit(1);
         }
     }

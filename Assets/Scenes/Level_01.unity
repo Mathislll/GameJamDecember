@@ -2192,6 +2192,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
+        type: 3}
+      propertyPath: pillard.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
+        type: 3}
+      propertyPath: pillard.Array.data[2]
+      value: 
+      objectReference: {fileID: 2651968439097190799, guid: fdd39d0aa5ade5b45b98ab12230e44cf,
+        type: 3}
     - target: {fileID: 8574280571887530050, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
       propertyPath: m_Name

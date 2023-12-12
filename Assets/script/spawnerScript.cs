@@ -40,7 +40,16 @@ public class spawnerScript : MonoBehaviour
     void spawnPillard()
     {
         GameObject pil = Instantiate(pillard[randomPillard]);
-        pil.GetComponent<pilierScript>().setPillard(randomGap, randomPosition);
+        if (pil.GetComponent<pilierScript>() != null )
+        {
+            pil.GetComponent<pilierScript>().setPillard(randomGap, randomPosition);
+        }
+        else if(pil.GetComponent<bombaScript>() != null )
+        {
+            pil.transform.position = new Vector3(20,pil.transform.position.y,0);
+            pil.GetComponent<bombaScript>().positionSpawn = randomPosition;
+            pil.GetComponent<bombaScript>().SetIsMove();
+        }
         pil.transform.parent = null;
     }
 
@@ -49,7 +58,7 @@ public class spawnerScript : MonoBehaviour
         randomPillard = UnityEngine.Random.Range(0, pillard.Length);
         //Debug.Log(randomPillard.ToString());
         randomGap = UnityEngine.Random.Range(1f, 6f);
-        randomPosition = UnityEngine.Random.Range(-4.20f, 4.20f);
+        randomPosition = UnityEngine.Random.Range(-4.00f, 4.00f);
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
     }
 }
