@@ -29,7 +29,7 @@ public class pilierScript : MonoBehaviour
             Debug.Break();
             
         }
-        if(pillardPos <= 0)
+        if(pillardPos < 0)
         {
             //Debug.LogError("les pilier ne laissent pas d'ouverture");
             //Debug.Break();

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  pillardGap: 0
+  pillardGap: 1
   pillardPos: 0
   topPillard: {fileID: 8989240128735949720}
   bottomPillard: {fileID: 7478653121288096326}
