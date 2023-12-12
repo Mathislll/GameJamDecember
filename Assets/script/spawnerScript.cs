@@ -6,7 +6,7 @@ using UnityEngine;
 public class spawnerScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pillard;
+    private GameObject[] pillard;
 
     [SerializeField]
     private float timeBetweenPillard;
@@ -15,6 +15,7 @@ public class spawnerScript : MonoBehaviour
 
     private float randomGap = 1;
     private float randomPosition = 1;
+    private int randomPillard;
 
     void Start()
     {
@@ -38,13 +39,15 @@ public class spawnerScript : MonoBehaviour
 
     void spawnPillard()
     {
-        GameObject pil = Instantiate(pillard);
+        GameObject pil = Instantiate(pillard[randomPillard]);
         pil.GetComponent<pilierScript>().setPillard(randomGap, randomPosition);
         pil.transform.parent = null;
     }
 
     private void setRandomNumber()
     {
+        randomPillard = UnityEngine.Random.Range(0, pillard.Length);
+        Debug.Log(randomPillard.ToString());
         randomGap = UnityEngine.Random.Range(1f, 6f);
         randomPosition = UnityEngine.Random.Range(-4.20f, 4.20f);
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());

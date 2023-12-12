@@ -2,30 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
     public GameObject optionsPanel;
     public GameObject pausePanel;
+    public GameObject gameOverPanel;
+
     public bool visible = false;
 
     public TMP_Dropdown resolutionDropdown;
 
-    private AudioSource audioSourceSFX;
-    private AudioSource audioSourceMusic;
     public Slider SFXVolumeSlider;
     public Slider MusicVolumeSlider;
     public TMP_Text SFXTextVolume;
     public TMP_Text MusicTextVolume;
+
     private SoundManager soundManager;
     private GameManager gameManager;
 
+    private AudioSource audioSourceSFX;
+    private AudioSource audioSourceMusic;
+
+    private LifeSystem lifeSystem;
+
+    // event que le script player stat va activer a chaque update des points de vie
+    // EVENT_ZONE
+    public UnityEvent updateLife;
+    public UnityEvent playerDead;
 
 
-    // Start is called before the first frame update
     void Start()
     {
+        lifeSystem = GetComponent<LifeSystem>(); // récupère le script du retour joueur des points de vie
+
         if (SoundManager.Instance != null)
         {
             soundManager = SoundManager.Instance;
@@ -43,18 +55,21 @@ public class MenuScript : MonoBehaviour
         SetSFXVolume();
         SetMusicVolume();
 
+        //EVENT_ZONE
+        updateLife.AddListener(lifeSystem.UpdateLivesDisplay);
+        playerDead.AddListener(GameOver);
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetButtonDown("Escape"))
         {
-            visible = !visible;
-            pausePanel.SetActive(visible);
+            Pause();
         }
-        // stop time
-        if (visible)
+        
+        if (visible) // stop time
         {
             Time.timeScale = 0;
         }
@@ -63,20 +78,30 @@ public class MenuScript : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-
-    public void Resume()
+    public void GameOver()
+    {
+        visible = !visible;
+        gameOverPanel.SetActive(visible);
+    }
+    public void Resume() 
     {
         visible = false;
         pausePanel.SetActive(visible);
     }
 
-    public void Options()
+    public void Pause()
+    {
+        visible = !visible;
+        pausePanel.SetActive(visible);
+    }
+
+    public void OpenOption() // anciennement nommé Option
     {
         pausePanel.SetActive(false);
         optionsPanel.SetActive(true);
     }
 
-    public void Back()
+    public void CloseOption() // anciennement nommé Back
     {
         pausePanel.SetActive(true);
         optionsPanel.SetActive(false);

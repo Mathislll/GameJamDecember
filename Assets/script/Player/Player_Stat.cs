@@ -23,9 +23,9 @@ public class Player_Stat : MonoBehaviour
     public float delayBeforeRespawn = 3f;
 
     private GameManager gameManager;
-    public UnityEvent onPlayerDeath;
 
-    // Start is called before the first frame update
+    public MenuScript UI; // UI du joueur
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,7 +44,6 @@ public class Player_Stat : MonoBehaviour
         else Debug.LogError("GameManager is null");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isRespawning)
@@ -69,9 +68,9 @@ public class Player_Stat : MonoBehaviour
     public void TakeHit(float damage)
     {
         life -= damage;
+        UI.updateLife.Invoke();
         if (life <= 0)
         {
-            onPlayerDeath.Invoke();
             Die();
         }
         else
@@ -82,7 +81,8 @@ public class Player_Stat : MonoBehaviour
 
     public void Die()
     {
-
+        UI.playerDead.Invoke();
+        Destroy(gameObject);
     }
 
     public void TakeHeal(float heal)
