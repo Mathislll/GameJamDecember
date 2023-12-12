@@ -19,6 +19,7 @@ public class MenuScript : MonoBehaviour
     public TMP_Text SFXTextVolume;
     public TMP_Text MusicTextVolume;
     private SoundManager soundManager;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,12 @@ public class MenuScript : MonoBehaviour
             audioSourceMusic = soundManager.musicSource;
         }
         else Debug.LogError("SoundManager is null");
+
+        if (GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        else Debug.LogError("GameManager is null");
 
         SetSFXVolume();
         SetMusicVolume();
@@ -75,7 +82,12 @@ public class MenuScript : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        GameManager.Instance.LoadNextLevel("MainMenu");
+        gameManager.LoadNextLevel("MainMenu");
+    }
+
+    public void Restart()
+    {
+        gameManager.PlayNewGame();
     }
 
     public void SetResolution()

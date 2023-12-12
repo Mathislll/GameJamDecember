@@ -21,6 +21,8 @@ public class Player_Stat : MonoBehaviour
 
     public float delayBeforeRespawn = 3f;
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,12 @@ public class Player_Stat : MonoBehaviour
         {
             playerMaterial = playerRenderer.material;
         }
+
+        if (GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        else Debug.LogError("GameManager is null");
     }
 
     // Update is called once per frame
@@ -61,12 +69,17 @@ public class Player_Stat : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
         else
         {
             StartCoroutine(RespawnCoroutine());
         }
+    }
+
+    public void Die()
+    {
+        gameManager.LoadNextLevel("Level_01");
     }
 
     public void TakeHeal(float heal)
