@@ -8,6 +8,8 @@ public class ShootScript : MonoBehaviour
     public Transform bulletSpawn;
     public GameObject bullet;
 
+    public float bulletSpeed = 20f;
+
     public float timer = 0.0f;
     public float timeBetweenShots = 0.1f;
 
@@ -50,6 +52,7 @@ public class ShootScript : MonoBehaviour
     public void Shoot()
     {
         bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletPrefab.transform.rotation, transform.parent);
+        bullet.GetComponent<BulletScript>().speed = bulletSpeed;
         bullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet);
     }
 }

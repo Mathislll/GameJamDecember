@@ -53,6 +53,14 @@ public class BulletScript : MonoBehaviour
         {
             collider.GetComponent<bombaScript>().MacronExplosion();
         }
+        else if(collider.gameObject.CompareTag("Turret"))
+        {             
+            collider.GetComponent<TurretScript>().SendDamage(1);
+        }
+        else if (collider.gameObject.CompareTag("Turret2"))
+        {
+            collider.GetComponent<TurretScript>().SendDamage(2);
+        }
 
     }
 }

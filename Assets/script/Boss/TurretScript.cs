@@ -6,8 +6,9 @@ public class TurretScript : MonoBehaviour
 {
     float dist;
     Transform player;
-    public Transform head, barrel;
+    public Transform barrel;
     public GameObject bulletPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +19,12 @@ public class TurretScript : MonoBehaviour
     void Update()
     {
         dist = Vector3.Distance(player.position, transform.position);
-        head.LookAt(player);
+        transform.LookAt(player);
 
-        if (Input.GetButtonDown("Fire"))
-        {
-            Shoot();
-        }
+        //if (Input.GetButtonDown("Fire"))
+        //{
+        //    Shoot();
+        //}
     }
 
     public void Shoot()
@@ -31,5 +32,10 @@ public class TurretScript : MonoBehaviour
 
         GameObject newBullet = Instantiate(bulletPrefab, barrel.position, transform.rotation);
         newBullet.GetComponent<BulletScript>().BulletInit(barrel, false);
+    }
+
+    public void SendDamage(int turretNumber)
+    {
+        transform.GetComponentInParent<BossShootScript>().TakeTurretDamage(turretNumber);
     }
 }

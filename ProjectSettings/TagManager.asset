@@ -8,6 +8,8 @@ TagManager:
   - Boss
   - Enemy
   - Bomb
+  - Turret
+  - Turret2
   layers:
   - Default
   - TransparentFX

@@ -26,6 +26,9 @@ public class Player_Stat : MonoBehaviour
 
     public MenuScript UI; // UI du joueur
 
+    public bool isGodMode = false;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -67,6 +70,7 @@ public class Player_Stat : MonoBehaviour
 
     public void TakeHit(float damage)
     {
+        if (isGodMode) return;
         life -= damage;
         UI.updateLife.Invoke();
         if (life <= 0)
