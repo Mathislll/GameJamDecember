@@ -159,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 4587333162458665948, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Options
+      value: OpenOption
       objectReference: {fileID: 0}
     - target: {fileID: 7234300998494823963, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
@@ -1957,7 +1957,7 @@ PrefabInstance:
     - target: {fileID: 3332822455036433607, guid: e496d6153803ee549aa396f4a8b56587,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Back
+      value: CloseOption
       objectReference: {fileID: 0}
     - target: {fileID: 4316225498476064055, guid: e496d6153803ee549aa396f4a8b56587,
         type: 3}
