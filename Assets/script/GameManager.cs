@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level_01");
     }
 
-    // Update is called once per frame
     void Update()
     {
 
