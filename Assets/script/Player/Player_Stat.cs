@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player_Stat : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Player_Stat : MonoBehaviour
 
     public float delayBeforeRespawn = 3f;
 
+    private GameManager gameManager;
+    public UnityEvent onPlayerDeath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +36,12 @@ public class Player_Stat : MonoBehaviour
         {
             playerMaterial = playerRenderer.material;
         }
+
+        if (GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        else Debug.LogError("GameManager is null");
     }
 
     // Update is called once per frame
@@ -61,12 +71,18 @@ public class Player_Stat : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
-            Destroy(gameObject);
+            onPlayerDeath.Invoke();
+            Die();
         }
         else
         {
             StartCoroutine(RespawnCoroutine());
         }
+    }
+
+    public void Die()
+    {
+
     }
 
     public void TakeHeal(float heal)
