@@ -47,7 +47,7 @@ public class spawnerScript : MonoBehaviour
         else if(pil.GetComponent<bombaScript>() != null )
         {
             pil.transform.position = new Vector3(20,pil.transform.position.y,0);
-            pil.GetComponent<bombaScript>().positionSpawn = randomPosition;
+            pil.GetComponent<bombaScript>().positionSpawnY = randomPosition;
             pil.GetComponent<bombaScript>().SetIsMove();
         }
         pil.transform.parent = null;

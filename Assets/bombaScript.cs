@@ -7,7 +7,7 @@ public class bombaScript : MonoBehaviour
     [SerializeField]
     private float speed;
     [SerializeField]
-    public float positionSpawn;
+    public float positionSpawnY;
     [SerializeField]
     private GameObject bubulParticul;
     [SerializeField]
@@ -20,7 +20,7 @@ public class bombaScript : MonoBehaviour
     [SerializeField]
     private bool trapMove = false;
 
-    private const float spawnPosition = 30;
+    private const float spawnPositionX = 30;
 
     void Start()
     {
@@ -59,6 +59,6 @@ public class bombaScript : MonoBehaviour
     public void SetIsMove()
     {
         trapMove = true;
-        this.transform.position = new Vector3(spawnPosition, this.transform.position.y, 0);
+        this.transform.position = new Vector3(spawnPositionX, positionSpawnY, 0);
     }
 }

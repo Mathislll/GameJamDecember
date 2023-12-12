@@ -12,6 +12,12 @@ public class ObstacleDetection : MonoBehaviour
             //Debug.Log("Hit");
             GetComponent<Player_Stat>().TakeHit(1);
         }
+        else if (other.gameObject.CompareTag("Bomb"))
+        {
+            //Debug.Log("Hit");
+            GetComponent<Player_Stat>().TakeHit(1);
+            other.GetComponent<bombaScript>().MacronExplosion();
+        }
     }
     // Start is called before the first frame update
     void Start()
