@@ -2,30 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class playSoundScript : MonoBehaviour
 {
-    public Rigidbody myRigidbody;
-    public float flapStrenght;
     private SoundManager soundManager;
+    private AudioSource audioSFXSource;
+    public int soundIndex;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (SoundManager.Instance != null)
         {
             soundManager = SoundManager.Instance;
+            audioSFXSource = soundManager.sfxSource;
         }
         else Debug.LogError("SoundManager is null");
+    }
+
+    public void PlaySound()
+    {
+        audioSFXSource.clip = soundManager.listSound[soundIndex];
+        audioSFXSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump") == true)
-        {
-            myRigidbody.velocity = Vector3.up * flapStrenght;
-            soundManager.PlayJumpingSound();
-        }
-
+        
     }
 }

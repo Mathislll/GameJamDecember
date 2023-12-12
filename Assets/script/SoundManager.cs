@@ -11,23 +11,17 @@ public class SoundManager : MonoBehaviour
     public AudioSource sfxSource;
 
     [Header("Character sound")]
-    public AudioClip characterAttack01;
-
-    [Header("Item sound")]
-    // faire une liste de tous les sons d'items
-    public AudioClip[] listItemSound;
-
-    [Header("Foot sound")]
-    public AudioClip[] listFootSound;
-
-    [Header("Landing sound")]
-    public AudioClip[] listLandingSound;
-
-    [Header("Dashing sound")]
-    public AudioClip[] listDashingSound;
+    public AudioClip characterDie;
+    [Header("CharacterShoot")]
+    public AudioClip[] listCharacterShoot;
 
     [Header("Jumping sound")]
     public AudioClip[] listJumpingSound;
+
+    [Header("Sound")]
+    public AudioClip[] listSound;
+
+
 
     private void Awake()
     {
@@ -56,23 +50,13 @@ public class SoundManager : MonoBehaviour
         sfxSource.PlayOneShot(clip);
     }
 
-    public void PlayFootStep()
-    {
-        sfxSource.PlayOneShot(listFootSound[Random.Range(0, listFootSound.Length)]);
-    }
-
-    public void PlayLandingSound()
-    {
-        sfxSource.PlayOneShot(listLandingSound[Random.Range(0, listLandingSound.Length)]);
-    }
-
-    public void PlayDashingSound()
-    {
-        sfxSource.PlayOneShot(listDashingSound[Random.Range(0, listDashingSound.Length)]);
-    }
-
     public void PlayJumpingSound()
     {
         sfxSource.PlayOneShot(listJumpingSound[Random.Range(0, listJumpingSound.Length)]);
+    }
+
+    public void PlayShootSound()
+    {
+        sfxSource.PlayOneShot(listCharacterShoot[Random.Range(0, listCharacterShoot.Length)]);
     }
 }

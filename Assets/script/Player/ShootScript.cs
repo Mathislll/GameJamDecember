@@ -19,10 +19,19 @@ public class ShootScript : MonoBehaviour
     public bool autoShoot = false;
     public bool isPlayerBullet = false;
 
+    private SoundManager soundManager;
+    private AudioSource audioSFXSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        if(SoundManager.Instance != null)
+        {
+            soundManager = SoundManager.Instance;
+            audioSFXSource = soundManager.sfxSource;
+        }
+        else Debug.LogError("SoundManager is null");
 
     }
 
@@ -52,7 +61,12 @@ public class ShootScript : MonoBehaviour
     public void Shoot()
     {
         bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletPrefab.transform.rotation, transform.parent);
-        bullet.GetComponent<BulletScript>().speed = bulletSpeed;
-        bullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet);
+        bullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet, bulletSpeed);
+        PlayAttackSound();
+    }
+
+    void PlayAttackSound()
+    {
+        soundManager.PlayShootSound();
     }
 }

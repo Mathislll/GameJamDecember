@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float speed = 50;
     public float lifeTime = 5.0f;
     public Rigidbody rb;
 
@@ -30,7 +29,7 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    public void BulletInit(Transform transform, bool isPlayerBullet)
+    public void BulletInit(Transform transform, bool isPlayerBullet, float speed)
     {
         this.isPlayerBullet = isPlayerBullet;
         rb = GetComponent<Rigidbody>();
