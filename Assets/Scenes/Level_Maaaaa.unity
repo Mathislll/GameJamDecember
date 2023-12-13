@@ -293,7 +293,7 @@ PrefabInstance:
     - target: {fileID: 2246021945369712195, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4587333162458665948, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
@@ -1240,6 +1240,8 @@ MonoBehaviour:
   MusicVolumeSlider: {fileID: 971673906}
   SFXTextVolume: {fileID: 337421444}
   MusicTextVolume: {fileID: 1783351232}
+  UIscoreText: {fileID: 0}
+  UIbestScoreText: {fileID: 0}
   updateLife:
     m_PersistentCalls:
       m_Calls: []
@@ -1964,6 +1966,8 @@ MonoBehaviour:
   playerHeatlh: 10
   debugMode: 0
   isFinalBossDefeated: 0
+  actualScore: 0
+  bestScore: 0
 --- !u!4 &2067095704
 Transform:
   m_ObjectHideFlags: 0
