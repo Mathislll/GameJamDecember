@@ -49,6 +49,7 @@ public class BossShootScript : MonoBehaviour
             if (turret1Health <= 0)
             {
                 // détruire la tourelle
+                GetComponent<Enemy_Stat>().isTurret1Dead = true;
                 Destroy(turret1);
             }
         }
@@ -57,6 +58,7 @@ public class BossShootScript : MonoBehaviour
             turret2Health--;
             if (turret2Health <= 0)
             {
+                GetComponent<Enemy_Stat>().isTurret2Dead = true;
                 Destroy(turret2);
             }
         }
