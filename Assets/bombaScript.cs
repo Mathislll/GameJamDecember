@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bombaScript : MonoBehaviour
 {
-    [SerializeField]
     private float speed;
     [SerializeField]
     public float positionSpawnY;
@@ -60,5 +59,10 @@ public class bombaScript : MonoBehaviour
     {
         trapMove = true;
         this.transform.position = new Vector3(spawnPositionX, positionSpawnY, 0);
+    }
+
+    public void SetSpeed(float set)
+    {
+        speed = set;
     }
 }

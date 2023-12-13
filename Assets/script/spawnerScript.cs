@@ -16,6 +16,9 @@ public class spawnerScript : MonoBehaviour
     [SerializeField]
     private float timeBeforeBoss;
 
+    [SerializeField]
+    private float speedObstacle;
+
     private float timer;
     private float timerBoss;
 
@@ -24,6 +27,9 @@ public class spawnerScript : MonoBehaviour
     private int randomPillard;
 
     private bool bossScene = false;
+    private bool bossAlive = false;
+
+    private const float bossPositionX = 10;
 
     void Start()
     {
@@ -33,7 +39,7 @@ public class spawnerScript : MonoBehaviour
 
     void Update()
     {
-        if(timerBoss < timeBeforeBoss)
+        if(!bossScene)
         {
             this.LvlState();
             //Debug.Log(timerBoss);
@@ -46,12 +52,14 @@ public class spawnerScript : MonoBehaviour
         if (pil.GetComponent<pilierScript>() != null )
         {
             pil.GetComponent<pilierScript>().setPillard(randomGap, randomPosition);
+            pil.GetComponent<pilierScript>().SetSpeed(speedObstacle);
         }
         else if(pil.GetComponent<bombaScript>() != null )
         {
             //pil.transform.position = new Vector3(20,pil.transform.position.y,0);
             pil.GetComponent<bombaScript>().positionSpawnY = randomPosition;
             pil.GetComponent<bombaScript>().SetIsMove();
+            pil.GetComponent<bombaScript>().SetSpeed(speedObstacle);
         }
         pil.transform.parent = null;
     }
@@ -67,10 +75,11 @@ public class spawnerScript : MonoBehaviour
 
     private void SpawnBoss()
     {
+        bossAlive = true;
         GameObject elBoss = Instantiate(boss, this.transform);
-        elBoss.transform.position = new Vector3(20, 0, 0);
         elBoss.transform.parent = null;
-        //StartCoroutine(BossCome(elBoss));
+        elBoss.transform.position = new Vector3(30, 0, 0);
+        StartCoroutine(BossCome(elBoss));
     }
 
     void LvlState()
@@ -109,9 +118,10 @@ public class spawnerScript : MonoBehaviour
 
     IEnumerator BossCome(GameObject boss)
     {
-        while (true)
+        while(boss.transform.position.x > bossPositionX)
         {
-            boss.transform.position = new Vector3(boss.transform.position.x - 1, 0, 0);
+            boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 10f * Time.fixedDeltaTime, 0, 0);
+            //yield return new WaitForFixedUpdate();
             yield return null;
         }
     }

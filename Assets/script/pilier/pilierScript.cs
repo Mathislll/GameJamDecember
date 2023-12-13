@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class pilierScript : MonoBehaviour
 {
-    [SerializeField]
     private float speed;
     [SerializeField]
     private float pillardGap;
@@ -58,5 +57,10 @@ public class pilierScript : MonoBehaviour
     {
         this.pillardGap = gap;
         this.pillardPos = pos;
+    }
+
+    public void SetSpeed(float set)
+    {
+        speed = set;
     }
 }
