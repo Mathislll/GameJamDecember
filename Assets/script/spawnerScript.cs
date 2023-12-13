@@ -7,15 +7,23 @@ public class spawnerScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] pillard;
+    [SerializeField]
+    private GameObject boss;
 
     [SerializeField]
     private float timeBetweenPillard;
 
+    [SerializeField]
+    private float timeBeforeBoss;
+
     private float timer;
+    private float timerBoss;
 
     private float randomGap = 1;
     private float randomPosition = 1;
     private int randomPillard;
+
+    private bool bossScene = false;
 
     void Start()
     {
@@ -25,15 +33,10 @@ public class spawnerScript : MonoBehaviour
 
     void Update()
     {
-        if(timer > timeBetweenPillard)
+        if(timer < timeBeforeBoss)
         {
-            timer = 0;
-            spawnPillard();
-            setRandomNumber();
-        }
-        else
-        {
-            timer += Time.deltaTime;
+            this.LvlState();
+            //Debug.Log(timerBoss);
         }
     }
 
@@ -46,7 +49,7 @@ public class spawnerScript : MonoBehaviour
         }
         else if(pil.GetComponent<bombaScript>() != null )
         {
-            pil.transform.position = new Vector3(20,pil.transform.position.y,0);
+            //pil.transform.position = new Vector3(20,pil.transform.position.y,0);
             pil.GetComponent<bombaScript>().positionSpawnY = randomPosition;
             pil.GetComponent<bombaScript>().SetIsMove();
         }
@@ -60,5 +63,33 @@ public class spawnerScript : MonoBehaviour
         randomGap = UnityEngine.Random.Range(1f, 6f);
         randomPosition = UnityEngine.Random.Range(-4.00f, 4.00f);
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
+    }
+
+    void LvlState()
+    {
+        if (timer > timeBetweenPillard && !bossScene)
+        {
+            timer = 0;
+            spawnPillard();
+            setRandomNumber();
+        }
+        else
+        {
+            timer += Time.deltaTime;
+        }
+
+        if (timerBoss > timeBeforeBoss)
+        {
+            bossScene = true;
+        }
+        else
+        {
+            timerBoss += Time.deltaTime;
+        }
+    }
+
+    public float GetTimeBoss()
+    {
+        return timerBoss;
     }
 }

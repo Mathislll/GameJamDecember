@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
+    public GameObject inGamePanel;
     public GameObject optionsPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
@@ -32,6 +33,7 @@ public class MenuScript : MonoBehaviour
     // EVENT_ZONE
     public UnityEvent updateLife;
     public UnityEvent playerDead;
+    public UnityEvent updateTimeLvl;
 
 
     void Start()
@@ -58,6 +60,7 @@ public class MenuScript : MonoBehaviour
         //EVENT_ZONE
         updateLife.AddListener(lifeSystem.UpdateLivesDisplay);
         playerDead.AddListener(GameOver);
+        updateTimeLvl.AddListener(updateTimeBar);
 
     }
 
@@ -78,33 +81,44 @@ public class MenuScript : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
+    public void updateTimeBar()
+    {
+        // mettre a jour la barre de temps avant le boss
+    }
+
     public void GameOver()
     {
         visible = !visible;
         gameOverPanel.SetActive(visible);
+        inGamePanel.SetActive(false);
     }
     public void Resume() 
     {
         visible = false;
         pausePanel.SetActive(visible);
+        inGamePanel.SetActive(true);
     }
 
     public void Pause()
     {
         visible = !visible;
         pausePanel.SetActive(visible);
+        inGamePanel.SetActive(false);
     }
 
     public void OpenOption() // anciennement nommé Option
     {
         pausePanel.SetActive(false);
         optionsPanel.SetActive(true);
+        inGamePanel.SetActive(false);
     }
 
     public void CloseOption() // anciennement nommé Back
     {
         pausePanel.SetActive(true);
         optionsPanel.SetActive(false);
+        inGamePanel.SetActive(false);
     }
 
     public void ReturnToMainMenu()
