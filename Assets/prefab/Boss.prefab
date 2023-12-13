@@ -132,6 +132,8 @@ MonoBehaviour:
   turret1: {fileID: 5016169795883044974}
   turret2: {fileID: 8213716968131107566}
   eyeBody: {fileID: 6727430958647035417}
+  explosion: {fileID: 656843087232092975, guid: 552f2379473299f4d9f8f6d5c9e285f3,
+    type: 3}
   isTurret1Dead: 0
   isTurret2Dead: 0
   iseyeBodyDead: 0
@@ -223,7 +225,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993169723353301119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e2fbe2d449d5eed4bb8d254a40f88047, type: 2}
   m_CullingMode: 0

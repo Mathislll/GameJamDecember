@@ -184,5 +184,4 @@ public class BossShootScript : MonoBehaviour
     {
         canShoot = set;
     }
-
 }
