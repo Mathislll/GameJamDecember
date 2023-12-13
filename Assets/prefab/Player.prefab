@@ -200,6 +200,7 @@ MonoBehaviour:
     type: 3}
   bulletSpawn: {fileID: 5206775926039988878}
   bullet: {fileID: 0}
+  bulletSpeed: 20
   timer: 0
   timeBetweenShots: 0.5
   fireRate: 0.5
@@ -217,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544d93bf12f15884d84846b4daf4a012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  life: 3
   respawnPoint: {fileID: 0}
   rb: {fileID: 0}
   sphereCollider: {fileID: 0}
@@ -225,6 +226,8 @@ MonoBehaviour:
   normalColor: {r: 0, g: 1, b: 0, a: 1}
   isRespawning: 0
   delayBeforeRespawn: 3
+  UI: {fileID: 0}
+  isGodMode: 0
 --- !u!114 &1069030043299618896
 MonoBehaviour:
   m_ObjectHideFlags: 0
