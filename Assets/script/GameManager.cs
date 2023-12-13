@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public bool isFinalBossDefeated = false;
 
+    public int actualScore = 0;
+    public int bestScore = 0;
+
 
     private void Awake()
     {
@@ -36,6 +39,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void AddScore(int scoreToAdd)
+    {
+        actualScore += scoreToAdd;
+        if (actualScore > bestScore)
+        {
+            bestScore = actualScore;
+        }
+    }
+
+    public void CallUpdateScore()
+    {
+        // find the score system
+        GameObject scoreSystem = GameObject.Find("ScoreSystem");
+        if (scoreSystem != null)
+        {
+            ScoreSystem scoreSystemScript = scoreSystem.GetComponent<ScoreSystem>();
+            if (scoreSystemScript != null)
+            {
+                scoreSystemScript.UpdateScore();
+            }
+            else Debug.LogError("ScoreSystem script is null");
+        }
+        else Debug.LogError("ScoreSystem is null");
+    }
 
     public void PlayNewGame()
     {

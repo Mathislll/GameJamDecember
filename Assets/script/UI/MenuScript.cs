@@ -29,6 +29,10 @@ public class MenuScript : MonoBehaviour
 
     private LifeSystem lifeSystem;
 
+    // Score text
+    public TextMeshProUGUI UIscoreText;
+    public TextMeshProUGUI UIbestScoreText;
+
     // event que le script player stat va activer a chaque update des points de vie
     // EVENT_ZONE
     public UnityEvent updateLife;
@@ -92,6 +96,8 @@ public class MenuScript : MonoBehaviour
         visible = !visible;
         gameOverPanel.SetActive(visible);
         inGamePanel.SetActive(false);
+        UIscoreText.text = "Your Score: " + gameManager.actualScore;
+        UIbestScoreText.text = "Best Score: " + gameManager.bestScore;
     }
     public void Resume() 
     {
