@@ -23,6 +23,8 @@ public class Player_Stat : MonoBehaviour
     public float delayBeforeRespawn = 3f;
 
     private GameManager gameManager;
+    private SoundManager soundManager;
+    private AudioSource audioSFXSource;
 
     public MenuScript UI; // UI du joueur
 
@@ -45,6 +47,13 @@ public class Player_Stat : MonoBehaviour
             gameManager = GameManager.Instance;
         }
         else Debug.LogError("GameManager is null");
+
+        if (SoundManager.Instance != null)
+        {
+            soundManager = SoundManager.Instance;
+            audioSFXSource = soundManager.sfxSource;
+        }
+        else Debug.LogError("SoundManager is null");
     }
 
     void Update()
@@ -85,6 +94,11 @@ public class Player_Stat : MonoBehaviour
 
     public void Die()
     {
+        if (soundManager != null)
+        {
+            audioSFXSource.clip = soundManager.characterDie;
+            audioSFXSource.Play();
+        }
         UI.playerDead.Invoke();
         Destroy(gameObject);
     }

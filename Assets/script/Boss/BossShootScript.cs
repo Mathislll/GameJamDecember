@@ -62,7 +62,6 @@ public class BossShootScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bulletPrefab.GetComponent<BulletScript>().speed = bulletSpeed;
 
         // initialiser le décalage entre les tir turret
         turret2Timer += delayBetweenTurret;
@@ -107,7 +106,6 @@ public class BossShootScript : MonoBehaviour
             turret1Timer += Time.deltaTime;
             if (turret1Timer >= turret1TimeBetweenShots)
             {
-                turret1.GetComponent<TurretScript>().bulletPrefab.GetComponent<BulletScript>().speed = turretBulletSpeed;
                 turret1.GetComponent<TurretScript>().Shoot();
                 turret1Timer = 0.0f;
             }
@@ -118,7 +116,6 @@ public class BossShootScript : MonoBehaviour
             turret2Timer += Time.deltaTime;
             if (turret2Timer >= turret2TimeBetweenShots)
             {
-                turret2.GetComponent<TurretScript>().bulletPrefab.GetComponent<BulletScript>().speed = turretBulletSpeed;
                 turret2.GetComponent<TurretScript>().Shoot();
                 turret2Timer = 0.0f;
             }
@@ -133,12 +130,13 @@ public class BossShootScript : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
+            GetComponent<playSoundScript>().PlaySound();
             // Calculez la position Y pour chaque balle
             Vector3 bulletPosition = bulletSpawn.position + new Vector3(0, i * yOffset - yOffset, 0);
 
             // Instanciez la balle
             GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, bulletPrefab.transform.rotation, transform.parent);
-            newBullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet);
+            newBullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet, bulletSpeed);
         }
     }
 
@@ -146,7 +144,6 @@ public class BossShootScript : MonoBehaviour
 
     public void StartBigShoot()
     {
-        bulletPrefab.GetComponent<BulletScript>().speed = bulletSpeed;
         bulletPrefab.GetComponent<BulletScript>().lifeTime = bulletLifeTime;
         StartCoroutine(ShootBurst());
     }
@@ -168,7 +165,7 @@ public class BossShootScript : MonoBehaviour
         {
             Vector3 bulletPosition = bulletSpawn.position + new Vector3(0, i * yOffset - yOffset, 0);
             GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, bulletPrefab.transform.rotation, transform.parent);
-            newBullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet);
+            newBullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet, bulletSpeed);
         }
     }
 
