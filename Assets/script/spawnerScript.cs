@@ -29,7 +29,7 @@ public class spawnerScript : MonoBehaviour
     private bool bossScene = false;
     private bool bossAlive = false;
 
-    private const float bossPositionX = 10;
+    private const float bossPositionX = 5;
 
     void Start()
     {
@@ -124,5 +124,6 @@ public class spawnerScript : MonoBehaviour
             Debug.Log(boss.transform.position.x.ToString()+";"+bossPositionX.ToString());
             yield return new WaitForFixedUpdate();
         }
+        boss.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
     }
 }
