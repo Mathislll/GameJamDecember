@@ -35,7 +35,6 @@ public class spawnerScript : MonoBehaviour
     void Start()
     {
         setRandomNumber();
-        spawnPillard();
     }
 
     void Update()
