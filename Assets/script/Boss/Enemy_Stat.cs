@@ -63,7 +63,7 @@ public class Enemy_Stat : MonoBehaviour
         while (true)
         {
             GameObject explode = Instantiate(explosion, this.transform);
-            explode.transform.localPosition = new Vector3(0, UnityEngine.Random.Range(0, 5), UnityEngine.Random.Range(0, -10));
+            explode.transform.localPosition = new Vector3(0, UnityEngine.Random.Range(-2.5f, 2.5f), UnityEngine.Random.Range(0, -10));
             explode.transform.parent = null;
             yield return new WaitForSeconds(0.5f);
         }
