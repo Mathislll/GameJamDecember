@@ -15,7 +15,9 @@ public class Enemy_Stat : MonoBehaviour
 
     private Animator animator;
 
-    // Start is called before the first frame update
+    private const float DEAD_POS = -10f;
+    private const float SPEED_DEAD = 5f;
+
     void Start()
     {
         if (GetComponent<Animator>() != null)
@@ -28,19 +30,13 @@ public class Enemy_Stat : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if ((isTurret1Dead == true) && (isTurret2Dead == true) && (iseyeBodyDead == true))
         {
             GameManager.Instance.isFinalBossDefeated = true;
-            PlayDeathAnimation();
+            StartCoroutine(DeadAnimation());
         }
-    }
-
-    public void PlayDeathAnimation()
-    {
-        animator.SetTrigger("Death");
     }
 
     public void TakeHit(float damage)
@@ -51,7 +47,14 @@ public class Enemy_Stat : MonoBehaviour
             iseyeBodyDead = true;
             Destroy(eyeBody);
         }
-
-
+    }
+    IEnumerator DeadAnimation()
+    {
+        while (this.transform.position.y > DEAD_POS)
+        {
+            this.GetComponent<Rigidbody>().velocity = new Vector3(0, -SPEED_DEAD * 10 * Time.fixedDeltaTime, 0);
+            yield return new WaitForFixedUpdate();
+        }
+        Destroy(gameObject);
     }
 }
