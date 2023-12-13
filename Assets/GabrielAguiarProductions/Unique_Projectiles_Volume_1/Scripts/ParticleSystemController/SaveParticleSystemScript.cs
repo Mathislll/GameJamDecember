@@ -7,8 +7,8 @@ using System.Reflection;
 
 namespace GAP_ParticleSystemController
 {
-
-	public static class SaveParticleSystemScript{		
+#pragma warning disable CS0618
+    public static class SaveParticleSystemScript{		
 
 		public static void SaveVFX (GameObject prefabVFX, List<ParticleSystemOriginalSettings> psOriginalSettingsList) {
 #if UNITY_2018_3_OR_NEWER

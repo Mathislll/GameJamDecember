@@ -121,7 +121,7 @@ public class spawnerScript : MonoBehaviour
         while(boss.transform.position.x > bossPositionX)
         {
             boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 10f * Time.fixedDeltaTime, 0, 0);
-            Debug.Log(boss.transform.position.x.ToString()+";"+bossPositionX.ToString());
+            //Debug.Log(boss.transform.position.x.ToString()+";"+bossPositionX.ToString());
             yield return new WaitForFixedUpdate();
         }
         boss.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
