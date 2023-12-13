@@ -11,6 +11,7 @@ public class BossShootScript : MonoBehaviour
 
     public GameObject turret1;
     public GameObject turret2;
+    public GameObject eyeBody;
 
     public float timer = 0.0f;
     public float timeBetweenShots = 0.1f;
@@ -99,11 +100,14 @@ public class BossShootScript : MonoBehaviour
             }
 
             // big Shoot
-            timerBigShoot += Time.deltaTime;
-            if (timerBigShoot >= timeBetweenBigShoot)
+            if (eyeBody != null)
             {
-                StartBigShoot();
-                timerBigShoot = 0.0f;
+                timerBigShoot += Time.deltaTime;
+                if (timerBigShoot >= timeBetweenBigShoot)
+                {
+                    StartBigShoot();
+                    timerBigShoot = 0.0f;
+                }
             }
 
             // turret shoot
@@ -165,14 +169,16 @@ public class BossShootScript : MonoBehaviour
 
     void ShootVerticalGroup()
     {
+        Quaternion rotation = Quaternion.Euler(0, 0, -90); // Rotation de -90 degrés sur l'axe Z
 
         for (int i = 0; i < 3; i++)
         {
             Vector3 bulletPosition = bulletSpawn.position + new Vector3(0, i * yOffset - yOffset, 0);
-            GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, bulletPrefab.transform.rotation, transform.parent);
-            newBullet.GetComponent<BulletScript>().BulletInit(transform, isPlayerBullet, bulletSpeed);
+            GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, rotation); // Utilisez la rotation définie
+            newBullet.GetComponent<BulletScript>().BulletInit(eyeBody.transform, isPlayerBullet, bulletSpeed);
         }
     }
+
 
     public void SetCanOpenFire(bool set)
     {

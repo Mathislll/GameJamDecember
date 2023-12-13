@@ -60,6 +60,15 @@ public class BulletScript : MonoBehaviour
         {
             collider.GetComponent<TurretScript>().SendDamage(2);
         }
+        else if (collider.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(collider.gameObject);
+            Destroy(gameObject);
+        }
+        else if (collider.gameObject.CompareTag("Boss"))
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

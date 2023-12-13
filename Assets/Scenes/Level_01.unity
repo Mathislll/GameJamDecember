@@ -687,6 +687,11 @@ PrefabInstance:
       objectReference: {fileID: 1175280498}
     - target: {fileID: 4762754973974580733, guid: cd1c373c49144e547af7b3c10ebfc0eb,
         type: 3}
+      propertyPath: isGodMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762754973974580733, guid: cd1c373c49144e547af7b3c10ebfc0eb,
+        type: 3}
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 639411252}
@@ -1271,7 +1276,7 @@ PrefabInstance:
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
       propertyPath: timeBeforeBoss
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
