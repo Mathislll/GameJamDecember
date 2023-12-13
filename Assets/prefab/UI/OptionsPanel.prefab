@@ -110,10 +110,10 @@ RectTransform:
   - {fileID: 1198573329221326379}
   m_Father: {fileID: 5022435671634406576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.8, y: -70.9}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 74.8, y: -70.899994}
+  m_SizeDelta: {x: -502, y: -852}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5440610426632597821
 MonoBehaviour:
@@ -167,7 +167,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 1
         m_Arguments:
@@ -983,10 +983,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1313140752376254560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -187, y: 1.6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -187, y: 1.5999756}
+  m_SizeDelta: {x: 40, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1418066806995482896
 CanvasRenderer:
@@ -1258,10 +1258,10 @@ RectTransform:
   - {fileID: 5855841551508395942}
   m_Father: {fileID: 5022435671634406576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 74, y: 85}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: -502, y: -842}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1499849866564881558
 CanvasRenderer:
@@ -1899,10 +1899,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5022435671634406576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.664824, y: 369.00037}
-  m_SizeDelta: {x: 243.7191, y: 44.9553}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.6099854, y: 352.74}
+  m_SizeDelta: {x: -258.96, y: -785.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1822775577761712725
 CanvasRenderer:
@@ -1967,8 +1967,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2129,7 +2129,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -289}
-  m_SizeDelta: {x: 201.5075, y: 89.608}
+  m_SizeDelta: {x: 201.51, y: 89.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9079450513588287610
 CanvasRenderer:
@@ -2218,7 +2218,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: Back
+        m_MethodName: CloseOption
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2335,10 +2335,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4461645771015913765}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -191, y: 1.6}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -191, y: 1.5999756}
+  m_SizeDelta: {x: 40, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2562326050794480612
 CanvasRenderer:
@@ -2584,10 +2584,10 @@ RectTransform:
   - {fileID: 4954262953319721906}
   m_Father: {fileID: 5022435671634406576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.8, y: 3.1}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 74.8, y: 3.100006}
+  m_SizeDelta: {x: -502, y: -852}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4316225498476064055
 MonoBehaviour:
@@ -2641,7 +2641,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OptionsScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 1
         m_Arguments:
@@ -2720,10 +2720,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7697719685891269594}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -162, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &824195859996052696
 CanvasRenderer:
