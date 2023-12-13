@@ -286,6 +286,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2246021945369712195, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7234300998494823963, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -374,7 +379,7 @@ PrefabInstance:
     - target: {fileID: 8509033066750078061, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -2.6298218
+      value: -2.6298523
       objectReference: {fileID: 0}
     - target: {fileID: 8509033066750078061, guid: 514ebb30f8bfe394d8fcfae0a96eda85,
         type: 3}
@@ -1602,12 +1607,12 @@ PrefabInstance:
     - target: {fileID: 1306097380211466702, guid: 9636188a6e9653542a9bc3929005e2c2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3.9199982
+      value: 3.9199524
       objectReference: {fileID: 0}
     - target: {fileID: 1306097380211466702, guid: 9636188a6e9653542a9bc3929005e2c2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.3100014
+      value: 1.3099976
       objectReference: {fileID: 0}
     - target: {fileID: 1306097380211466702, guid: 9636188a6e9653542a9bc3929005e2c2,
         type: 3}
