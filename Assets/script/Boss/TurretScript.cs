@@ -35,7 +35,7 @@ public class TurretScript : MonoBehaviour
 
     public void Shoot()
     {
-        GetComponent<playSoundScript>().PlaySound();
+        //GetComponent<playSoundScript>().PlaySound();
         GameObject newBullet = Instantiate(bulletPrefab, barrel.position, transform.rotation);
         newBullet.GetComponent<BulletScript>().BulletInit(barrel, false, bulletSpeed);
     }

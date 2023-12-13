@@ -33,7 +33,7 @@ public class spawnerScript : MonoBehaviour
 
     void Update()
     {
-        if(timer < timeBeforeBoss)
+        if(timerBoss < timeBeforeBoss)
         {
             this.LvlState();
             //Debug.Log(timerBoss);
