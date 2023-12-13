@@ -1271,7 +1271,7 @@ PrefabInstance:
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
       propertyPath: timeBeforeBoss
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}

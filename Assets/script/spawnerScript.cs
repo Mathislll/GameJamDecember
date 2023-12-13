@@ -78,7 +78,7 @@ public class spawnerScript : MonoBehaviour
         bossAlive = true;
         GameObject elBoss = Instantiate(boss, this.transform);
         elBoss.transform.parent = null;
-        elBoss.transform.position = new Vector3(30, 0, 0);
+        elBoss.transform.position = new Vector3(60, 0, 0);
         StartCoroutine(BossCome(elBoss));
     }
 
