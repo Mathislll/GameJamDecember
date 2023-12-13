@@ -65,6 +65,14 @@ public class spawnerScript : MonoBehaviour
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
     }
 
+    private void SpawnBoss()
+    {
+        GameObject elBoss = Instantiate(boss, this.transform);
+        elBoss.transform.position = new Vector3(20, 0, 0);
+        elBoss.transform.parent = null;
+        //StartCoroutine(BossCome(elBoss));
+    }
+
     void LvlState()
     {
         if (timer > timeBetweenPillard && !bossScene)
@@ -80,6 +88,7 @@ public class spawnerScript : MonoBehaviour
 
         if (timerBoss > timeBeforeBoss)
         {
+            SpawnBoss();
             bossScene = true;
         }
         else
@@ -91,5 +100,14 @@ public class spawnerScript : MonoBehaviour
     public float GetTimeBoss()
     {
         return timerBoss;
+    }
+
+    IEnumerator BossCome(GameObject boss)
+    {
+        while (true)
+        {
+            boss.transform.position = new Vector3(boss.transform.position.x - 1, 0, 0);
+            yield return null;
+        }
     }
 }

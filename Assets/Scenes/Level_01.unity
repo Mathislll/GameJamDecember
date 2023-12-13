@@ -522,12 +522,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 193781937}
   sfxSource: {fileID: 1217716909}
-  characterAttack01: {fileID: 0}
-  listItemSound: []
-  listFootSound: []
-  listLandingSound: []
-  listDashingSound: []
+  characterDie: {fileID: 0}
+  listCharacterShoot: []
   listJumpingSound: []
+  listSound: []
 --- !u!4 &197294492
 Transform:
   m_ObjectHideFlags: 0
@@ -1349,6 +1347,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   playerDead:
+    m_PersistentCalls:
+      m_Calls: []
+  updateTimeLvl:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1217716908
@@ -2271,8 +2272,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 1993169723353301119, guid: eb33752f27045a94195667c9fb32808d,
+        type: 3}
+    - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
+        type: 3}
       propertyPath: timeBeforeBoss
-      value: 300
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
+        type: 3}
+      propertyPath: timeBetweenPillard
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8574280571887530050, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
