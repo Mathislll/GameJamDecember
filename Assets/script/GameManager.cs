@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayNewGame()
     {
+        actualScore = 0;
         SceneManager.LoadScene("Level_01");
     }
 

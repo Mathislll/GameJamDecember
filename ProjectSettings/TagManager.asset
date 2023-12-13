@@ -53,9 +53,9 @@ TagManager:
   - name: BG2
     uniqueID: 1387298579
     locked: 0
-  - name: Parallax
-    uniqueID: 3949162487
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ParallaxForeground
+    uniqueID: 3949162487
     locked: 0
