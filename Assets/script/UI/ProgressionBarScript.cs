@@ -8,7 +8,7 @@ public class ProgressionBarScript : MonoBehaviour
 
     public Image timerBar;
 
-    public float timerDuration = 10.0f; 
+    private float timerDuration;
 
     private float timerElapsed = 0.0f; // temps ecoulé
 
@@ -25,6 +25,7 @@ public class ProgressionBarScript : MonoBehaviour
         {
             timerElapsed += Time.deltaTime;
             UpdateBarFillAmount();
+            //Debug.Log(timerElapsed.ToString());
         }
     }
 
@@ -33,5 +34,11 @@ public class ProgressionBarScript : MonoBehaviour
         // Calculez le pourcentage de temps écoulé et mettez à jour fillAmount
         float fillAmount = timerElapsed / timerDuration;
         timerBar.fillAmount = fillAmount;
+    }
+
+    public void SetTimerDuration(float set)
+    {
+        timerDuration = set;
+        //Debug.Log(timerDuration.ToString());
     }
 }

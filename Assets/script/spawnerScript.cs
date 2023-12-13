@@ -99,6 +99,11 @@ public class spawnerScript : MonoBehaviour
 
     public float GetTimeBoss()
     {
+        return timeBeforeBoss;
+    }
+
+    public float GetTimeLevel()
+    {
         return timerBoss;
     }
 
