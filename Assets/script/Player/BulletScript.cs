@@ -11,6 +11,10 @@ public class BulletScript : MonoBehaviour
     public bool isPlayerBullet = false;
 
     public float damage = 1f;
+
+    public ParticleSystem explosionParticule1;
+    public ParticleSystem explosionParticule2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,32 +40,50 @@ public class BulletScript : MonoBehaviour
         rb.velocity = transform.forward * speed;
     }
 
+    public void PlayExplosionParticule()
+    {
+        Instantiate(explosionParticule1, transform.position, Quaternion.identity);
+        Instantiate(explosionParticule2, transform.position, Quaternion.identity);
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Enemy") && isPlayerBullet)
         {
-            collider.gameObject.GetComponent<Enemy_Stat>().TakeHit(damage);
-            Destroy(gameObject);
+            if (collider.gameObject.GetComponent<Enemy_Stat>() != null)
+            {
+                collider.gameObject.GetComponent<Enemy_Stat>().TakeHit(damage);
+                PlayExplosionParticule();
+                Destroy(gameObject);
+            }
         }
         else if (collider.gameObject.CompareTag("Player") && !isPlayerBullet)
         {
             collider.gameObject.GetComponent<Player_Stat>().TakeHit(damage);
+            PlayExplosionParticule();
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Bomb"))
         {
             collider.GetComponent<bombaScript>().MacronExplosion();
+            PlayExplosionParticule();
+            Destroy(gameObject);
         }
         else if(collider.gameObject.CompareTag("Turret"))
         {             
             collider.GetComponent<TurretScript>().SendDamage(1);
+            PlayExplosionParticule();
+            Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Turret2"))
         {
             collider.GetComponent<TurretScript>().SendDamage(2);
+            PlayExplosionParticule();
+            Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Projectile"))
         {
+            PlayExplosionParticule();
             Destroy(collider.gameObject);
             Destroy(gameObject);
         }

@@ -93,7 +93,7 @@ public class BossShootScript : MonoBehaviour
                 if (timer >= timeBetweenShots)
                 {
 
-                    Shoot();
+                    ShootVerticalGroup();
                     timer = 0.0f;
 
                 }
@@ -175,7 +175,10 @@ public class BossShootScript : MonoBehaviour
         {
             Vector3 bulletPosition = bulletSpawn.position + new Vector3(0, i * yOffset - yOffset, 0);
             GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, rotation); // Utilisez la rotation définie
-            newBullet.GetComponent<BulletScript>().BulletInit(eyeBody.transform, isPlayerBullet, bulletSpeed);
+            if (newBullet.GetComponent<BulletScript>() != null)
+            {
+                newBullet.GetComponent<BulletScript>().BulletInit(eyeBody.transform, isPlayerBullet, bulletSpeed);
+            }
         }
     }
 

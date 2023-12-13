@@ -35,12 +35,18 @@ public class TurretScript : MonoBehaviour
 
     public void Shoot()
     {
-        Quaternion rotation = Quaternion.Euler(0, 0, -90);
+        // Calculez la rotation pour que le missile regarde vers le joueur
+        Vector3 directionToPlayer = (player.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle - 270); // Ajustez l'angle si nécessaire
 
-        //GetComponent<playSoundScript>().PlaySound();
+        // Instanciez le missile avec la rotation calculée
         GameObject newBullet = Instantiate(bulletPrefab, barrel.position, rotation);
-        newBullet.GetComponent<BulletScript>().BulletInit(barrel, false, bulletSpeed);
+        newBullet.GetComponent<BulletScript>().BulletInit(transform, false, bulletSpeed);
+
+        //GetComponent<playSoundScript>().PlaySound(); // Décommentez pour jouer le son
     }
+
 
     public void SendDamage(int turretNumber)
     {

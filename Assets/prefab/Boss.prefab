@@ -114,8 +114,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.3252046, z: 1.0265704}
-  m_Center: {x: -3.3328152e-17, y: -0.007742971, z: -0.013279736}
+  m_Size: {x: 1, y: 1.3252046, z: 1.3781356}
+  m_Center: {x: -5.329489e-16, y: -0.007743001, z: 0.16250291}
 --- !u!114 &2099865494815352825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   timeBetweenShots: 1
   fireRate: 1
   canShoot: 0
-  autoShoot: 0
+  autoShoot: 1
   isPlayerBullet: 0
   bulletSpeed: 15
   bulletLifeTime: 3
@@ -263,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 6450587553764084860}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.53}
+  m_LocalPosition: {x: 0, y: 0, z: 0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
