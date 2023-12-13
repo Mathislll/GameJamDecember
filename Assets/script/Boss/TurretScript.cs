@@ -35,8 +35,10 @@ public class TurretScript : MonoBehaviour
 
     public void Shoot()
     {
+        Quaternion rotation = Quaternion.Euler(0, 0, -90);
+
         //GetComponent<playSoundScript>().PlaySound();
-        GameObject newBullet = Instantiate(bulletPrefab, barrel.position, transform.rotation);
+        GameObject newBullet = Instantiate(bulletPrefab, barrel.position, rotation);
         newBullet.GetComponent<BulletScript>().BulletInit(barrel, false, bulletSpeed);
     }
 
