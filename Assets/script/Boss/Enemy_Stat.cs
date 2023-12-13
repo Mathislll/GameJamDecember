@@ -35,6 +35,7 @@ public class Enemy_Stat : MonoBehaviour
         if ((isTurret1Dead == true) && (isTurret2Dead == true) && (iseyeBodyDead == true))
         {
             GameManager.Instance.isFinalBossDefeated = true;
+            this.GetComponent<BossShootScript>().SetCanOpenFire(false);
             StartCoroutine(DeadAnimation());
         }
     }
