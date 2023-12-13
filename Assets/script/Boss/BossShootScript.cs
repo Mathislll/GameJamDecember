@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossShootScript : MonoBehaviour
 {
+#pragma warning disable CS0414
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public GameObject bullet;
@@ -17,6 +18,7 @@ public class BossShootScript : MonoBehaviour
     public float fireRate = 1.0f;  // Délai en secondes entre les tirs
     private float nextFireTime = 0f;  // Temps prochain tir est autorisé
 
+    public bool canShoot = false; // autorise a tirer quand entré dans le niveau
     public bool autoShoot = false;
     public bool isPlayerBullet = false;
 
@@ -80,48 +82,49 @@ public class BossShootScript : MonoBehaviour
         //}
 
         // autoshoot
-        if (autoShoot)
+        if(canShoot)
         {
-            timer += Time.deltaTime;
-            if (timer >= timeBetweenShots)
+            if (autoShoot)
             {
+                timer += Time.deltaTime;
+                if (timer >= timeBetweenShots)
+                {
 
-                Shoot();
-                timer = 0.0f;
+                    Shoot();
+                    timer = 0.0f;
 
+                }
+            }
+
+            // big Shoot
+            timerBigShoot += Time.deltaTime;
+            if (timerBigShoot >= timeBetweenBigShoot)
+            {
+                StartBigShoot();
+                timerBigShoot = 0.0f;
+            }
+
+            // turret shoot
+            if (turret1 != null)
+            {
+                turret1Timer += Time.deltaTime;
+                if (turret1Timer >= turret1TimeBetweenShots)
+                {
+                    turret1.GetComponent<TurretScript>().Shoot();
+                    turret1Timer = 0.0f;
+                }
+            }
+
+            if (turret2 != null)
+            {
+                turret2Timer += Time.deltaTime;
+                if (turret2Timer >= turret2TimeBetweenShots)
+                {
+                    turret2.GetComponent<TurretScript>().Shoot();
+                    turret2Timer = 0.0f;
+                }
             }
         }
-
-        // big Shoot
-        timerBigShoot += Time.deltaTime;
-        if (timerBigShoot >= timeBetweenBigShoot)
-        {
-            StartBigShoot();
-            timerBigShoot = 0.0f;
-        }
-
-        // turret shoot
-        if (turret1 != null)
-        { 
-            turret1Timer += Time.deltaTime;
-            if (turret1Timer >= turret1TimeBetweenShots)
-            {
-                turret1.GetComponent<TurretScript>().Shoot();
-                turret1Timer = 0.0f;
-            }
-        }
-
-        if (turret2 != null)
-        {
-            turret2Timer += Time.deltaTime;
-            if (turret2Timer >= turret2TimeBetweenShots)
-            {
-                turret2.GetComponent<TurretScript>().Shoot();
-                turret2Timer = 0.0f;
-            }
-        }
-
-
     }
 
     public void Shoot()
@@ -169,5 +172,9 @@ public class BossShootScript : MonoBehaviour
         }
     }
 
+    public void SetCanOpenFire(bool set)
+    {
+        canShoot = set;
+    }
 
 }

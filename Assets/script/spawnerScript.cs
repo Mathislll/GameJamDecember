@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class spawnerScript : MonoBehaviour
 {
+#pragma warning disable CS0414
     [SerializeField]
     private GameObject[] pillard;
     [SerializeField]
@@ -125,5 +126,6 @@ public class spawnerScript : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         boss.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        boss.GetComponent<BossShootScript>().SetCanOpenFire(true);
     }
 }
