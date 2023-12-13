@@ -7,10 +7,16 @@ using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
+    [Header("Panel")]
     public GameObject inGamePanel;
     public GameObject optionsPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
+
+
+    [Header("Other")]
+    public GameObject progressBar;
+    public GameObject spawnManager;
 
     public bool visible = false;
 
@@ -39,6 +45,7 @@ public class MenuScript : MonoBehaviour
     void Start()
     {
         lifeSystem = GetComponent<LifeSystem>(); // récupère le script du retour joueur des points de vie
+        progressBar.GetComponent<ProgressionBarScript>().SetTimerDuration(spawnManager.GetComponent<spawnerScript>().GetTimeBoss());
 
         if (SoundManager.Instance != null)
         {
