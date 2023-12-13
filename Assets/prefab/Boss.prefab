@@ -132,6 +132,8 @@ MonoBehaviour:
   turret1: {fileID: 5016169795883044974}
   turret2: {fileID: 8213716968131107566}
   eyeBody: {fileID: 6727430958647035417}
+  explosion: {fileID: 656843087232092975, guid: 552f2379473299f4d9f8f6d5c9e285f3,
+    type: 3}
   isTurret1Dead: 0
   isTurret2Dead: 0
   iseyeBodyDead: 0

@@ -9,6 +9,8 @@ public class Enemy_Stat : MonoBehaviour
     public GameObject turret2;
     public GameObject eyeBody;
 
+    public GameObject explosion;
+
     public bool isTurret1Dead = false;
     public bool isTurret2Dead = false;
     public bool iseyeBodyDead = false;
@@ -17,6 +19,8 @@ public class Enemy_Stat : MonoBehaviour
 
     private const float DEAD_POS = -10f;
     private const float SPEED_DEAD = 5f;
+
+    private bool isDying = false;
 
     void Start()
     {
@@ -35,8 +39,13 @@ public class Enemy_Stat : MonoBehaviour
         if ((isTurret1Dead == true) && (isTurret2Dead == true) && (iseyeBodyDead == true))
         {
             GameManager.Instance.isFinalBossDefeated = true;
+        }
+        if(GameManager.Instance.isFinalBossDefeated && !isDying)
+        {
+            isDying = true;
             this.GetComponent<BossShootScript>().SetCanOpenFire(false);
             StartCoroutine(DeadAnimation());
+            StartCoroutine(CaPetePartout());
         }
     }
 
@@ -47,6 +56,16 @@ public class Enemy_Stat : MonoBehaviour
         {
             iseyeBodyDead = true;
             Destroy(eyeBody);
+        }
+    }
+    IEnumerator CaPetePartout()
+    {
+        while (true)
+        {
+            GameObject explode = Instantiate(explosion, this.transform);
+            explode.transform.localPosition = new Vector3(0, UnityEngine.Random.Range(0, 5), UnityEngine.Random.Range(0, -10));
+            explode.transform.parent = null;
+            yield return new WaitForSeconds(0.5f);
         }
     }
     IEnumerator DeadAnimation()
