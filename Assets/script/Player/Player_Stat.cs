@@ -11,7 +11,7 @@ public class Player_Stat : MonoBehaviour
     public SphereCollider sphereCollider;
 
     private Renderer playerRenderer;
-    public Color blinkColor = Color.white; // Couleur de clignotement
+    public Color blinkColor = new Color(0.0f, 0.44f, 1.0f, 1.0f); // Couleur de clignotement
     public Color normalColor = Color.green; // Couleur normale
     private Material playerMaterial;
     public bool isRespawning = false;
@@ -25,6 +25,10 @@ public class Player_Stat : MonoBehaviour
     private GameManager gameManager;
     private SoundManager soundManager;
     private AudioSource audioSFXSource;
+
+    public GameObject FBXtoBlink;
+    public GameObject FBXtoBlink2;
+
 
     public MenuScript UI; // UI du joueur
 
@@ -78,11 +82,32 @@ public class Player_Stat : MonoBehaviour
     {
         if (Time.time >= nextBlinkTime)
         {
-            // Change la couleur du matériau
-            playerMaterial.SetColor("_BaseColor", isBlinking ? normalColor : blinkColor);
+            // Convertissez la couleur hexadécimale #006CFF en un objet Color de Unity
+            Color blinkEmissionColor = new Color(0.0f, 0.44f, 1.0f, 1.0f); // Représentation RGB de #006CFF
+
+            // Obtenez le Renderer et le Matériau du GameObject FBX
+            Renderer fbxRenderer = FBXtoBlink.GetComponent<Renderer>();
+            Material fbxMaterial = fbxRenderer.material;
+
+            Renderer fbxRenderer2 = FBXtoBlink2.GetComponent<Renderer>();
+            Material fbxMaterial2 = fbxRenderer2.material;
+
+            // Activez ou désactivez l'émission du matériau
+            if (isBlinking)
+            {
+                fbxMaterial.DisableKeyword("_EMISSION");
+                fbxMaterial2.DisableKeyword("_EMISSION");
+            }
+            else
+            {
+                fbxMaterial.EnableKeyword("_EMISSION");
+                fbxMaterial.SetColor("_EmissionColor", blinkEmissionColor); // Utilisez la couleur spécifique pour l'émission
+                fbxMaterial2.EnableKeyword("_EMISSION");
+                fbxMaterial2.SetColor("_EmissionColor", blinkEmissionColor); // Utilisez la couleur spécifique pour l'émission
+            }
             isBlinking = !isBlinking;
 
-            // Définit le temps pour le prochain changement de couleur
+            // Définit le temps pour le prochain changement
             nextBlinkTime = Time.time + blinkInterval;
         }
     }
@@ -139,6 +164,14 @@ public class Player_Stat : MonoBehaviour
             }
             yield return null; // Attend jusqu'à la prochaine frame
         }
+
+        Renderer fbxRenderer = FBXtoBlink.GetComponent<Renderer>();
+        Material fbxMaterial = fbxRenderer.material;
+        fbxMaterial.DisableKeyword("_EMISSION");
+
+        Renderer fbxRenderer2 = FBXtoBlink.GetComponent<Renderer>();
+        Material fbxMaterial2 = fbxRenderer2.material;
+        fbxMaterial2.DisableKeyword("_EMISSION");
 
         // Réactivez le Collider et la physique
         if (rb != null) rb.isKinematic = false;

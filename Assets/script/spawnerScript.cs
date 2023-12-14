@@ -68,8 +68,8 @@ public class spawnerScript : MonoBehaviour
     {
         randomPillard = UnityEngine.Random.Range(0, pillard.Length);
         //Debug.Log(randomPillard.ToString());
-        randomGap = UnityEngine.Random.Range(2.5f, 4f);
-        randomPosition = UnityEngine.Random.Range(-3.00f, 3.00f);
+        randomGap = UnityEngine.Random.Range(2.1f, 4f);
+        randomPosition = UnityEngine.Random.Range(-2.00f, 2.00f);
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
     }
 
