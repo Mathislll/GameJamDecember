@@ -304,15 +304,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 7341690487205769147}
   sfxSource: {fileID: 5809566692294292761}
-  characterDie: {fileID: 8300000, guid: fef4ea4c05272fe4d94edc2140bc7741, type: 3}
+  characterDie: {fileID: 8300000, guid: 52c49a71ae4e4b44185679647c715de4, type: 3}
   listCharacterShoot:
-  - {fileID: 8300000, guid: 0e57c7e2c675ca04f95175b3f165aced, type: 3}
-  - {fileID: 8300000, guid: cadf57cb244c25944b3762ba6f2e2a49, type: 3}
-  - {fileID: 8300000, guid: 1243f04f8c01ab746a40856c6f2a7d83, type: 3}
+  - {fileID: 8300000, guid: d2f8cf5363e7b754b9ef5ade423732d4, type: 3}
+  - {fileID: 8300000, guid: abff422c7b4ba1a49b6b63fe389343a5, type: 3}
+  - {fileID: 8300000, guid: 3de116d8796ba3f4eb4986911760c767, type: 3}
   listJumpingSound:
-  - {fileID: 8300000, guid: 25b5350c233c755438f481f4189dc422, type: 3}
-  - {fileID: 8300000, guid: 3f45dfa86dcaf7443b69c2026142711d, type: 3}
-  - {fileID: 8300000, guid: 3b15f87c354c98b4198b38854fe0c732, type: 3}
+  - {fileID: 8300000, guid: 09e4033a128d1b04ab7672c2d8e9007e, type: 3}
   listSound:
   - {fileID: 8300000, guid: 0df463dfee4633142a83c8fe9ef76758, type: 3}
   - {fileID: 8300000, guid: 3c596c90db679084cb9ee081e4829091, type: 3}

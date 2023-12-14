@@ -91,6 +91,11 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collider.gameObject.CompareTag("obstacle"))
+        {
+            PlayExplosionParticule();
+            Destroy(gameObject);
+        }
 
     }
 }

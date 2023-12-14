@@ -42,6 +42,8 @@ public class BossShootScript : MonoBehaviour
     public float turret1Health = 2f;
     public float turret2Health = 2f;
 
+    private GameManager gameManager;
+
     public void TakeTurretDamage(int turretNumber)
     {        
         if (turretNumber == 1)
@@ -51,6 +53,8 @@ public class BossShootScript : MonoBehaviour
             {
                 // détruire la tourelle
                 GetComponent<Enemy_Stat>().isTurret1Dead = true;
+                gameManager.AddScore(20);
+                gameManager.CallUpdateScore();
                 Destroy(turret1);
             }
         }
@@ -60,6 +64,8 @@ public class BossShootScript : MonoBehaviour
             if (turret2Health <= 0)
             {
                 GetComponent<Enemy_Stat>().isTurret2Dead = true;
+                gameManager.AddScore(20);
+                gameManager.CallUpdateScore();
                 Destroy(turret2);
             }
         }
@@ -67,7 +73,14 @@ public class BossShootScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        else
+        {
+            Debug.LogError("GameManager is null");
+        }
         // initialiser le décalage entre les tir turret
         turret2Timer += delayBetweenTurret;
     }
@@ -177,7 +190,10 @@ public class BossShootScript : MonoBehaviour
             GameObject newBullet = Instantiate(bulletPrefab, bulletPosition, rotation); // Utilisez la rotation définie
             if (newBullet.GetComponent<BulletScript>() != null)
             {
-                newBullet.GetComponent<BulletScript>().BulletInit(eyeBody.transform, isPlayerBullet, bulletSpeed);
+                if (eyeBody != null)
+                {
+                    newBullet.GetComponent<BulletScript>().BulletInit(eyeBody.transform, isPlayerBullet, bulletSpeed);
+                }
             }
         }
     }

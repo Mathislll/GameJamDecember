@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour
     public GameObject optionsPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
-
+    public GameObject winMenu;
 
     [Header("Other")]
     public GameObject progressBar;
@@ -38,6 +38,8 @@ public class MenuScript : MonoBehaviour
     // Score text
     public TextMeshProUGUI UIscoreText;
     public TextMeshProUGUI UIbestScoreText;
+    public TextMeshProUGUI UIscoreTextWIN;
+    public TextMeshProUGUI UIbestScoreTextWIN;
 
     // event que le script player stat va activer a chaque update des points de vie
     // EVENT_ZONE
@@ -106,6 +108,15 @@ public class MenuScript : MonoBehaviour
         UIscoreText.text = "Your Score: " + gameManager.actualScore;
         UIbestScoreText.text = "Best Score: " + gameManager.bestScore;
     }
+
+    public void Victory()
+    {
+        visible = !visible;
+        winMenu.SetActive(visible);
+        inGamePanel.SetActive(false);
+        UIscoreTextWIN.text = "Your Score: " + gameManager.actualScore;
+        UIbestScoreTextWIN.text = "Best Score: " + gameManager.bestScore;
+    }
     public void Resume() 
     {
         visible = false;
@@ -137,11 +148,13 @@ public class MenuScript : MonoBehaviour
     public void ReturnToMainMenu()
     {
         gameManager.LoadNextLevel("MainMenu");
+        Time.timeScale = 1;
+        gameManager.actualScore = 0;
     }
 
     public void Restart()
     {
-        gameManager.PlayNewGame();
+        gameManager.RestartLevel();
     }
 
     public void SetResolution()

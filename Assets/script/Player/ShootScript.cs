@@ -19,6 +19,9 @@ public class ShootScript : MonoBehaviour
     public bool autoShoot = false;
     public bool isPlayerBullet = false;
 
+    public bool isCheatMode = false;
+    public bool isCheatBullet = false;
+
     private SoundManager soundManager;
     private AudioSource audioSFXSource;
 
@@ -38,7 +41,19 @@ public class ShootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire") && Time.time >= nextFireTime)
+        if (Input.GetButtonDown("CheatShoot"))
+        {
+            isCheatMode = !isCheatMode;
+        }
+
+        if (isCheatMode)
+        {
+            if (Input.GetButtonDown("Fire"))
+            {
+                isCheatBullet = !isCheatBullet;
+            }
+        }
+        else if (Input.GetButtonDown("Fire") && Time.time >= nextFireTime)
         {
             nextFireTime = Time.time + fireRate;  // Mise à jour du temps pour le prochain tir
             Shoot();
@@ -56,6 +71,20 @@ public class ShootScript : MonoBehaviour
 
             }
         }
+
+        if (isCheatBullet)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.1f)
+            {
+
+                Shoot();
+                timer = 0.0f;
+
+            }
+        }
+
+
     }
 
     public void Shoot()

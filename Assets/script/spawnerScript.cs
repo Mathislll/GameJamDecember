@@ -18,7 +18,7 @@ public class spawnerScript : MonoBehaviour
     private float timeBeforeBoss;
 
     [SerializeField]
-    private float speedObstacle;
+    public float speedObstacle;
 
     private float timer;
     private float timerBoss;
@@ -68,8 +68,8 @@ public class spawnerScript : MonoBehaviour
     {
         randomPillard = UnityEngine.Random.Range(0, pillard.Length);
         //Debug.Log(randomPillard.ToString());
-        randomGap = UnityEngine.Random.Range(1f, 6f);
-        randomPosition = UnityEngine.Random.Range(-4.00f, 4.00f);
+        randomGap = UnityEngine.Random.Range(2.5f, 4f);
+        randomPosition = UnityEngine.Random.Range(-3.00f, 3.00f);
         //Debug.Log(randomGap.ToString() + "," + randomPosition.ToString());
     }
 
@@ -120,7 +120,7 @@ public class spawnerScript : MonoBehaviour
     {
         while(boss.transform.position.x > bossPositionX)
         {
-            boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 10f * Time.fixedDeltaTime, 0, 0);
+            boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 50f * Time.fixedDeltaTime, 0, 0);
             //Debug.Log(boss.transform.position.x.ToString()+";"+bossPositionX.ToString());
             yield return new WaitForFixedUpdate();
         }

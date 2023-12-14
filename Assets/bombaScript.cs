@@ -23,7 +23,7 @@ public class bombaScript : MonoBehaviour
 
     void Start()
     {
-        speed = speed * -10f;
+        speed = speed * -1f;
     }
 
     void Update()
@@ -32,14 +32,12 @@ public class bombaScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (trapMove)
         {
-            rb.velocity = new Vector3(speed * Time.fixedDeltaTime, 0, 0);
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         }
+
     }
 
     public void MacronExplosion()
@@ -52,6 +50,7 @@ public class bombaScript : MonoBehaviour
         {
             Destroy(obstacleToDestroy.gameObject);
         }
+        GetComponent<playSoundScript>().PlaySound();
         Destroy(this.gameObject);
     }
 

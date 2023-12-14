@@ -56,11 +56,21 @@ public class Player_Stat : MonoBehaviour
         else Debug.LogError("SoundManager is null");
     }
 
+    public void GodMod()
+    {
+        isGodMode = !isGodMode;
+    }
+
     void Update()
     {
         if (isRespawning)
         {
             Blink();
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            GodMod();
         }
     }
 

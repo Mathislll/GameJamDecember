@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ProgressionBarScript : MonoBehaviour
 {
 
-    public Image timerBar;
+    //public Image timerBar;
+    public Slider slider;
 
     private float timerDuration;
 
@@ -24,16 +25,22 @@ public class ProgressionBarScript : MonoBehaviour
         if (timerElapsed < timerDuration)
         {
             timerElapsed += Time.deltaTime;
-            UpdateBarFillAmount();
+            //UpdateBarFillAmount();
+            UpdateSliderAmount();
             //Debug.Log(timerElapsed.ToString());
         }
     }
 
-    void UpdateBarFillAmount()
+    //void UpdateBarFillAmount()
+    //{
+    //    // Calculez le pourcentage de temps écoulé et mettez à jour fillAmount
+    //    float fillAmount = timerElapsed / timerDuration;
+    //    timerBar.fillAmount = fillAmount;
+    //}
+
+    public void UpdateSliderAmount()
     {
-        // Calculez le pourcentage de temps écoulé et mettez à jour fillAmount
-        float fillAmount = timerElapsed / timerDuration;
-        timerBar.fillAmount = fillAmount;
+        slider.value = timerElapsed / timerDuration;
     }
 
     public void SetTimerDuration(float set)

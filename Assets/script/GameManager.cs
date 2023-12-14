@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
     public bool debugMode = false;
 
     public bool isFinalBossDefeated = false;
-
+    public bool isGameFinished = false;
     public int actualScore = 0;
     public int bestScore = 0;
+    public float waitingTimeAfterBossDeath = 10f;
 
 
     private void Awake()
@@ -64,15 +65,61 @@ public class GameManager : MonoBehaviour
         else Debug.LogError("ScoreSystem is null");
     }
 
+    public void CallWinMenu()
+    {
+        StartCoroutine(WaitForWinMenu());
+    }
+
+    public void CallFadeOut()
+    {
+        GameObject fadeManager = GameObject.Find("FadeManager");
+        if (fadeManager != null)
+        {
+            fadeManager.GetComponent<FadeManager>().animator.SetTrigger("FadeOut");
+        }
+        else Debug.LogError("FadeManager is null");
+    }
+
+    IEnumerator WaitForWinMenu()
+    {
+        yield return new WaitForSeconds(waitingTimeAfterBossDeath); // Attend 5 secondes
+
+        GameObject canva = GameObject.Find("Canvas");
+        if (canva != null)
+        {
+            canva.GetComponent<MenuScript>().Victory();
+        }
+        else Debug.LogError("Canvas is null");
+    }
+
+
     public void PlayNewGame()
+    {
+        actualScore = 0;
+        SceneManager.LoadScene("LoadingScreen");
+        StartCoroutine(WaitForLevel());
+    }
+
+    public void RestartLevel()
     {
         actualScore = 0;
         SceneManager.LoadScene("Level_01");
     }
 
+    IEnumerator WaitForLevel()
+    {
+        yield return new WaitForSeconds(5f); // Attend 5 secondes
+        SceneManager.LoadScene("Level_01");
+    }
+
+
     void Update()
     {
-
+        if (isFinalBossDefeated)
+        {
+            CallWinMenu();
+            isFinalBossDefeated = false;
+        }
     }
 
     public void LoadNextLevel(string nextLevelName)

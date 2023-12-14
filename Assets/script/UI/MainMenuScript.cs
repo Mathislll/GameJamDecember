@@ -8,8 +8,17 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     public void PlayNewGame()
     {
-        SceneManager.LoadScene("Level_01");
+        GameManager.Instance.isGameFinished = false;
+        GameManager.Instance.isFinalBossDefeated = false;
+        GameManager.Instance.LoadNextLevel("LoadingScreen");
     }
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
+
 
     public void PlayMathisLevel()
     {
@@ -24,5 +33,6 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+
     }
 }

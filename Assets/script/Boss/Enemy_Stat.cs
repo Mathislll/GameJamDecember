@@ -21,6 +21,7 @@ public class Enemy_Stat : MonoBehaviour
     private const float SPEED_DEAD = 5f;
 
     private bool isDying = false;
+    private GameManager gameManager;
 
     void Start()
     {
@@ -32,12 +33,22 @@ public class Enemy_Stat : MonoBehaviour
         {
             Debug.LogError("Animator is null");
         }
+
+        if (GameManager.Instance != null)
+        {
+            gameManager = GameManager.Instance;
+        }
+        else
+        {
+            Debug.LogError("GameManager is null");
+        }
     }
 
     void Update()
     {
-        if ((isTurret1Dead == true) && (isTurret2Dead == true) && (iseyeBodyDead == true))
+        if ((isTurret1Dead == true) && (isTurret2Dead == true) && (iseyeBodyDead == true) && !GameManager.Instance.isGameFinished)
         {
+            GameManager.Instance.isGameFinished = true;
             GameManager.Instance.isFinalBossDefeated = true;
         }
         if(GameManager.Instance.isFinalBossDefeated && !isDying)
@@ -55,6 +66,8 @@ public class Enemy_Stat : MonoBehaviour
         if (health <= 0)
         {
             iseyeBodyDead = true;
+            gameManager.AddScore(50);
+            gameManager.CallUpdateScore();
             Destroy(eyeBody);
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pilierScript : MonoBehaviour
 {
-    private float speed;
+    public float speed;
     [SerializeField]
     private float pillardGap;
     [SerializeField]
@@ -34,7 +34,7 @@ public class pilierScript : MonoBehaviour
             //Debug.Break();
         }
 
-        speed = speed * -10f;
+        speed = speed * -1f;
         topPillard.transform.localPosition += new Vector3(0,pillardGap,0);
         transform.position = new Vector3(spawnPosition,pillardPos,0);
     }
@@ -45,12 +45,14 @@ public class pilierScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        // changer le X du pilier
+        transform.Translate(speed * Time.deltaTime,0,0);
+
     }
 
     private void FixedUpdate()
     {
         //transform.Translate(speed,0,0);
-        rb.velocity = new Vector3(speed * Time.fixedDeltaTime,0,0);
     }
 
     public void setPillard(float gap, float pos)

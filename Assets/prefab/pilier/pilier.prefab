@@ -48,12 +48,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9851899539391b647bdfe43489350a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  pillardGap: 1
+  speed: 150
+  pillardGap: 3
   pillardPos: 0
   topPillard: {fileID: 8989240128735949720}
   bottomPillard: {fileID: 7478653121288096326}
-  rb: {fileID: 7007329219278855325}
 --- !u!54 &7007329219278855325
 Rigidbody:
   m_ObjectHideFlags: 0
