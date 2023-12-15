@@ -10,6 +10,13 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
+    [Header("Music")]
+    public AudioClip levelMusic;
+    public AudioClip bossMusic;
+    public AudioClip menuMusic;
+    public AudioClip winMusic;
+    public AudioClip loseMusic;
+
     [Header("Character sound")]
     public AudioClip characterDie;
     [Header("CharacterShoot")]
@@ -43,6 +50,12 @@ public class SoundManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.Play();
     }
 
     public void PlaySound(AudioClip clip)

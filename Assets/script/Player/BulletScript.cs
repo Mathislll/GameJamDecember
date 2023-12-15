@@ -14,12 +14,18 @@ public class BulletScript : MonoBehaviour
 
     public ParticleSystem explosionParticule1;
     public ParticleSystem explosionParticule2;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
 
         //transform.rotation = Quaternion.Euler(0, 0, 90);
+    }
+
+    public void SpawnAudioBullet()
+    {
+        Instantiate(audioSource, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -54,45 +60,61 @@ public class BulletScript : MonoBehaviour
             {
                 collider.gameObject.GetComponent<Enemy_Stat>().TakeHit(damage);
                 PlayExplosionParticule();
+                SpawnAudioBullet();
                 Destroy(gameObject);
+
             }
         }
         else if (collider.gameObject.CompareTag("Player") && !isPlayerBullet)
         {
             collider.gameObject.GetComponent<Player_Stat>().TakeHit(damage);
             PlayExplosionParticule();
+            SpawnAudioBullet();
+
+
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Bomb"))
         {
             collider.GetComponent<bombaScript>().MacronExplosion();
             PlayExplosionParticule();
+            SpawnAudioBullet();
             Destroy(gameObject);
         }
         else if(collider.gameObject.CompareTag("Turret"))
         {             
             collider.GetComponent<TurretScript>().SendDamage(1);
             PlayExplosionParticule();
+            SpawnAudioBullet();
+
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Turret2"))
         {
             collider.GetComponent<TurretScript>().SendDamage(2);
             PlayExplosionParticule();
+            SpawnAudioBullet();
+
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Projectile"))
         {
             PlayExplosionParticule();
             Destroy(collider.gameObject);
+            SpawnAudioBullet();
+
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("Boss"))
         {
+            SpawnAudioBullet();
+
             Destroy(gameObject);
         }
         else if (collider.gameObject.CompareTag("obstacle"))
         {
+            SpawnAudioBullet();
+
             PlayExplosionParticule();
             Destroy(gameObject);
         }

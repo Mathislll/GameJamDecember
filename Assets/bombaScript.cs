@@ -5,6 +5,8 @@ using UnityEngine;
 public class bombaScript : MonoBehaviour
 {
     private float speed;
+    public float verticalSpeed = 5f; // Vitesse de déplacement vertical
+    public float verticalDirection = 1f;
     [SerializeField]
     public float positionSpawnY;
     [SerializeField]
@@ -20,6 +22,9 @@ public class bombaScript : MonoBehaviour
     private bool trapMove = false;
 
     private const float spawnPositionX = 30;
+    public float upperLimit = 10f; // Limite supérieure pour le mouvement vertical
+    public float lowerLimit = -10f;
+    public float rotationAmount = 180f;
 
     void Start()
     {
@@ -36,8 +41,16 @@ public class bombaScript : MonoBehaviour
         if (trapMove)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
-        }
 
+            float verticalMove = verticalSpeed * Time.deltaTime * verticalDirection;
+            transform.Translate(0, verticalMove, 0);
+
+            if (transform.position.y > upperLimit || transform.position.y < lowerLimit)
+            {
+                verticalDirection *= -1f;
+                //transform.Rotate(0, 0, rotationAmount); // Effectue une rotation de 180 degrés autour de l'axe Z
+            }
+        }
     }
 
     public void MacronExplosion()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6436056498981275414}
   - component: {fileID: 5464542721944989448}
   - component: {fileID: 1380602874640198721}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bomba
   m_TagString: Bomb
   m_Icon: {fileID: 0}
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8d411803a75c44a9086f17220811be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verticalSpeed: 5
+  verticalDirection: 1
   positionSpawnY: 0
   bubulParticul: {fileID: 3991632268027650582, guid: 7b8fa2afb4e94954bb2d3472fb87e3e8,
     type: 3}
@@ -131,6 +133,8 @@ MonoBehaviour:
   obstacleToDestroy: {fileID: 0}
   rb: {fileID: 5464542721944989448}
   trapMove: 0
+  upperLimit: 3
+  lowerLimit: -3
 --- !u!54 &5464542721944989448
 Rigidbody:
   m_ObjectHideFlags: 0

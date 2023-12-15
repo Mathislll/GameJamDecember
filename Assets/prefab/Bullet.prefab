@@ -4854,6 +4854,7 @@ GameObject:
   - component: {fileID: 4202468475937200650}
   - component: {fileID: 8688133713843160538}
   - component: {fileID: 6747510871700412504}
+  - component: {fileID: 4024212667246444825}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Projectile
@@ -4976,6 +4977,8 @@ MonoBehaviour:
     type: 3}
   explosionParticule2: {fileID: 6638609318720941108, guid: 0980e61803850c745bb8b69224e76ce4,
     type: 3}
+  audioSource: {fileID: 8377347746074343895, guid: e762a3ca6f6343c41a70955c931e0c40,
+    type: 3}
 --- !u!135 &6747510871700412504
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4997,6 +5000,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5398499
   m_Center: {x: 1.3768114e-15, y: -1.0968843, z: 0}
+--- !u!114 &4024212667246444825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3221151044021629835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59220bed095b8641a6819bca70d4629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundIndex: 3
 --- !u!1 &4488281249452286307
 GameObject:
   m_ObjectHideFlags: 0
