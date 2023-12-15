@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
+    private SoundManager soundManager;
     // Start is called before the first frame update
     public void PlayNewGame()
     {
@@ -15,6 +16,12 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
+        if (SoundManager.Instance != null)
+        {
+            soundManager = SoundManager.Instance;
+            soundManager.PlayMenuMusic();
+        }
+        else Debug.LogError("SoundManager is null");
         Time.timeScale = 1f;
     }
 

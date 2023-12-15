@@ -102,6 +102,7 @@ public class MenuScript : MonoBehaviour
 
     public void GameOver()
     {
+        soundManager.PlayLoseMusic();
         visible = !visible;
         gameOverPanel.SetActive(visible);
         inGamePanel.SetActive(false);
@@ -111,6 +112,7 @@ public class MenuScript : MonoBehaviour
 
     public void Victory()
     {
+        soundManager.PlayVictoryMusic();
         visible = !visible;
         winMenu.SetActive(visible);
         inGamePanel.SetActive(false);

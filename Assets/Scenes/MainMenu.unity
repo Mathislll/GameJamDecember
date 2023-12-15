@@ -477,7 +477,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 34.358826, y: 11.012444, z: 32.927246, w: 17.895273}
+  m_margin: {x: 35.74579, y: 11.012444, z: 32.927246, w: 17.895273}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4823,6 +4823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6390578527564578888, guid: 09fa3f8ca7bbce541967bcfa0efeb6ca,
+        type: 3}
+      propertyPath: menuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: af961db27fb465b4da2bb3400d1aeea7, type: 3}
     - target: {fileID: 6390578527564578888, guid: 09fa3f8ca7bbce541967bcfa0efeb6ca,
         type: 3}
       propertyPath: listSound.Array.size

@@ -6164,6 +6164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063166897}
   - component: {fileID: 1063166896}
+  - component: {fileID: 1063166898}
   m_Layer: 0
   m_Name: LaunchLevelMusic
   m_TagString: Untagged
@@ -6184,7 +6185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundIndex: 0
-  musicToPlay: 
 --- !u!4 &1063166897
 Transform:
   m_ObjectHideFlags: 0
@@ -6200,6 +6200,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063166898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063166895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d119a2ea647f194586a97360c8276a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1081714831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12324,7 +12336,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.7083435, y: -281.92}
+  m_AnchoredPosition: {x: -4.7083435, y: -281.92004}
   m_SizeDelta: {x: -451.35986, y: -713.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093306158
@@ -14060,7 +14072,7 @@ PrefabInstance:
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
       propertyPath: timeBeforeBoss
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 5422057337158950126, guid: 42fbadc30e564ba42b59cdbcbb6bc4dc,
         type: 3}
@@ -14097,3 +14109,4 @@ SceneRoots:
   - {fileID: 706457565}
   - {fileID: 232959723}
   - {fileID: 1063166897}
+  - {fileID: 580239734}

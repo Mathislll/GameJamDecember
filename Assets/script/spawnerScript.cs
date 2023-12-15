@@ -31,10 +31,16 @@ public class spawnerScript : MonoBehaviour
     private bool bossAlive = false;
 
     private const float bossPositionX = 5;
+    private SoundManager soundManager;
 
     void Start()
     {
         setRandomNumber();
+        if (SoundManager.Instance != null)
+        {
+            soundManager = SoundManager.Instance;
+        }
+        else Debug.LogError("SoundManager is null");
     }
 
     void Update()
@@ -80,6 +86,7 @@ public class spawnerScript : MonoBehaviour
         elBoss.transform.parent = null;
         elBoss.transform.position = new Vector3(30, 0, 0);
         StartCoroutine(BossCome(elBoss));
+        soundManager.PlayBossMusic();
     }
 
     void LvlState()

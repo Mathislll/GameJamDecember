@@ -9,7 +9,6 @@ public class playSoundScript : MonoBehaviour
     private AudioSource audioMusicSource;
     public int soundIndex;
 
-    public string musicToPlay;
 
     void Start()
     {
@@ -28,8 +27,10 @@ public class playSoundScript : MonoBehaviour
         audioSFXSource.Play();
     }
 
-    public void PlayMusic()
+    public void PlayLevelMusic()
     {
+        audioMusicSource.clip = soundManager.levelMusic;
+        audioMusicSource.Play();
     }
 
     // Update is called once per frame

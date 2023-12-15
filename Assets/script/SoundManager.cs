@@ -52,6 +52,35 @@ public class SoundManager : MonoBehaviour
         
     }
 
+    public void PlayLevelMusic()
+    {
+        musicSource.clip = levelMusic;
+        musicSource.Play();
+    }
+
+    public void PlayBossMusic()
+    {
+        musicSource.clip = bossMusic;
+        musicSource.Play();
+    }
+
+    public void PlayMenuMusic()
+    {
+        musicSource.clip = menuMusic;
+        musicSource.Play();
+    }
+
+    public void PlayVictoryMusic()
+    {
+        musicSource.clip = winMusic;
+        musicSource.Play();
+    }
+
+    public void PlayLoseMusic()
+    {
+        musicSource.clip = loseMusic;
+        musicSource.Play();
+    }
     public void PlayMusic(AudioClip clip)
     {
         musicSource.clip = clip;
