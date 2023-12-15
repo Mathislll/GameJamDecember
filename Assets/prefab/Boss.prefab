@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5544909222323945081}
   - component: {fileID: -5984407241322564196}
   - component: {fileID: 6305129391431042649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2818685963356265478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletEyeTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 1162204849026343593}
   - component: {fileID: 4031422848121139713}
   - component: {fileID: 452993091586803291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 1295307430771652758}
   - component: {fileID: 5254676976951895904}
   - component: {fileID: 7159381871243242196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EyeBody
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -568,6 +568,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5707071049101992955, guid: f9bb81080e02d7f4093cf78960e19b2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6311358750038248898, guid: f9bb81080e02d7f4093cf78960e19b2f,
         type: 3}
       propertyPath: m_Enabled
@@ -577,6 +582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretLeg1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429495799582850340, guid: f9bb81080e02d7f4093cf78960e19b2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6429495799582850340, guid: f9bb81080e02d7f4093cf78960e19b2f,
         type: 3}
@@ -719,6 +729,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5707071049101992955, guid: f9bb81080e02d7f4093cf78960e19b2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6311358750038248898, guid: f9bb81080e02d7f4093cf78960e19b2f,
         type: 3}
       propertyPath: m_Enabled
@@ -728,6 +743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TurretLeg2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429495799582850340, guid: f9bb81080e02d7f4093cf78960e19b2f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6429495799582850340, guid: f9bb81080e02d7f4093cf78960e19b2f,
         type: 3}
@@ -865,6 +885,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss_Turret
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b750f220f19e64e4e9a04e0884233f7f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -954,10 +979,50 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7814626935651253080, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
         type: 3}
       propertyPath: m_Name
       value: Boss_Mainbody 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614435980058631127, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134256962945146355, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4160125092215166280, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6157294908711173316, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369403816336145260, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514344248825363238, guid: 9d2c57321c2567c4e99b7ac7e5df139a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1052,6 +1117,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss_Turret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b750f220f19e64e4e9a04e0884233f7f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1151,6 +1221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss_Eye
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95942051da5ce8a4393a11deccdb7aed,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
