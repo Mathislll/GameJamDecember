@@ -306,7 +306,7 @@ MonoBehaviour:
   sfxSource: {fileID: 5809566692294292761}
   levelMusic: {fileID: 8300000, guid: 9c529ca39b0fa4f448a47614d88b3f88, type: 3}
   bossMusic: {fileID: 8300000, guid: 3c52ec170a471e0408c6900f9df9009a, type: 3}
-  menuMusic: {fileID: 0}
+  menuMusic: {fileID: 8300000, guid: af961db27fb465b4da2bb3400d1aeea7, type: 3}
   winMusic: {fileID: 8300000, guid: f0e70bd17324e6844af232a204bb1ce1, type: 3}
   loseMusic: {fileID: 8300000, guid: c0f468185e9fe2c49a880eef1f717c07, type: 3}
   characterDie: {fileID: 8300000, guid: 52c49a71ae4e4b44185679647c715de4, type: 3}
@@ -319,5 +319,5 @@ MonoBehaviour:
   listSound:
   - {fileID: 8300000, guid: d2f8cf5363e7b754b9ef5ade423732d4, type: 3}
   - {fileID: 8300000, guid: d2f8cf5363e7b754b9ef5ade423732d4, type: 3}
-  - {fileID: 8300000, guid: b7984e7882c10f545b9cc71834e3fb46, type: 3}
-  - {fileID: 8300000, guid: 24d3d69e14c0aa144bde112323efd4ca, type: 3}
+  - {fileID: 8300000, guid: 3803aca6074d7174581390c0a13ffd56, type: 3}
+  - {fileID: 8300000, guid: 51f63d7607ed1c943b803e621b5cb59f, type: 3}

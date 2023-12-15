@@ -26,6 +26,8 @@ public class bombaScript : MonoBehaviour
     public float lowerLimit = -10f;
     public float rotationAmount = 180f;
 
+    private bool hasRotated = false;
+
     void Start()
     {
         speed = speed * -1f;
@@ -40,15 +42,21 @@ public class bombaScript : MonoBehaviour
 
         if (trapMove)
         {
-            transform.Translate(speed * Time.deltaTime, 0, 0);
+            Vector3 horizontalMove = new Vector3(-1, 0, 0) * speed * Time.deltaTime;
+            transform.position -= horizontalMove;
 
-            float verticalMove = verticalSpeed * Time.deltaTime * verticalDirection;
-            transform.Translate(0, verticalMove, 0);
+            Vector3 verticalMove = new Vector3(0, verticalSpeed * Time.deltaTime * verticalDirection, 0);
+            transform.position += verticalMove;
 
-            if (transform.position.y > upperLimit || transform.position.y < lowerLimit)
+            if ((transform.position.y > upperLimit || transform.position.y < lowerLimit) && !hasRotated)
             {
                 verticalDirection *= -1f;
-                //transform.Rotate(0, 0, rotationAmount); // Effectue une rotation de 180 degrés autour de l'axe Z
+                transform.Rotate(0, 0, rotationAmount);
+                hasRotated = true;
+            }
+            else if (transform.position.y <= upperLimit && transform.position.y >= lowerLimit)
+            {
+                hasRotated = false;
             }
         }
     }

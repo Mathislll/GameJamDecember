@@ -14,6 +14,13 @@ public class MainMenuScript : MonoBehaviour
         GameManager.Instance.LoadNextLevel("LoadingScreen");
     }
 
+    public void PlayEndlessMode()
+    {
+        GameManager.Instance.isGameFinished = false;
+        GameManager.Instance.isFinalBossDefeated = false;
+        GameManager.Instance.LoadNextLevel("Level_Endless");
+    }
+
     private void Start()
     {
         if (SoundManager.Instance != null)

@@ -130,7 +130,7 @@ public class MenuScript : MonoBehaviour
     {
         visible = !visible;
         pausePanel.SetActive(visible);
-        inGamePanel.SetActive(false);
+        //inGamePanel.SetActive(false);
     }
 
     public void OpenOption() // anciennement nommé Option

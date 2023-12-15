@@ -123,8 +123,21 @@ public class Player_Stat : MonoBehaviour
         }
         else
         {
+            if (soundManager != null)
+            {
+                audioSFXSource.clip = soundManager.characterDie;
+                audioSFXSource.Play();
+            }
+            LittleGodModeRespawn();
             StartCoroutine(RespawnCoroutine());
         }
+    }
+
+    IEnumerator LittleGodModeRespawn()
+    {
+        isGodMode = true;
+        yield return new WaitForSeconds(1f);
+        isGodMode = false;
     }
 
     public void Die()
@@ -169,7 +182,7 @@ public class Player_Stat : MonoBehaviour
         Material fbxMaterial = fbxRenderer.material;
         fbxMaterial.DisableKeyword("_EMISSION");
 
-        Renderer fbxRenderer2 = FBXtoBlink.GetComponent<Renderer>();
+        Renderer fbxRenderer2 = FBXtoBlink2.GetComponent<Renderer>();
         Material fbxMaterial2 = fbxRenderer2.material;
         fbxMaterial2.DisableKeyword("_EMISSION");
 

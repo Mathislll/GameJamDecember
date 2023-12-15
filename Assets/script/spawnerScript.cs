@@ -81,12 +81,33 @@ public class spawnerScript : MonoBehaviour
 
     private void SpawnBoss()
     {
+        StartCoroutine(LoadBossAsync());
+    }
+
+    IEnumerator LoadBossAsync()
+    {
+        bossScene = true;
+
+        // Charge le boss de manière asynchrone
+        ResourceRequest loadRequest = Resources.LoadAsync<GameObject>("Boss");
+
+        yield return loadRequest;
+
+        GameObject bossPrefab = loadRequest.asset as GameObject;
+        if (bossPrefab != null)
+        {
+            GameObject elBoss = Instantiate(bossPrefab, this.transform);
+            elBoss.transform.parent = null;
+            elBoss.transform.position = new Vector3(30, 0, 0);
+            StartCoroutine(BossCome(elBoss));
+            soundManager.PlayBossMusic();
+        }
+        else
+        {
+            Debug.LogError("Boss prefab not found");
+        }
+
         bossAlive = true;
-        GameObject elBoss = Instantiate(boss, this.transform);
-        elBoss.transform.parent = null;
-        elBoss.transform.position = new Vector3(30, 0, 0);
-        StartCoroutine(BossCome(elBoss));
-        soundManager.PlayBossMusic();
     }
 
     void LvlState()
@@ -127,7 +148,7 @@ public class spawnerScript : MonoBehaviour
     {
         while(boss.transform.position.x > bossPositionX)
         {
-            boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 50f * Time.fixedDeltaTime, 0, 0);
+            boss.GetComponent<Rigidbody>().velocity = new Vector3(-speedObstacle * 30f * Time.fixedDeltaTime, 0, 0);
             //Debug.Log(boss.transform.position.x.ToString()+";"+bossPositionX.ToString());
             yield return new WaitForFixedUpdate();
         }
