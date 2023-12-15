@@ -12,12 +12,11 @@ public class FadeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     if (GameManager.Instance != null)
+        if (GameManager.Instance != null)
         {
             gameManager = GameManager.Instance;
         }
-
-     animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         Debug.Log("FadeManager Start");
         animator.SetTrigger("FadeOut");
     }
