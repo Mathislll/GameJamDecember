@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
+  levelToLoad: 
+  animator: {fileID: 964389339382334823}

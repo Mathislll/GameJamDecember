@@ -50,4 +50,4 @@ MonoBehaviour:
   isGameFinished: 0
   actualScore: 0
   bestScore: 0
-  waitingTimeAfterBossDeath: 1
+  waitingTimeAfterBossDeath: 10

@@ -159,6 +159,11 @@ public class MenuScript : MonoBehaviour
         gameManager.RestartLevel();
     }
 
+    public void RestartEndless()
+    {
+        gameManager.RestartEndless();
+    }
+
     public void SetResolution()
     {
         switch (resolutionDropdown.value)

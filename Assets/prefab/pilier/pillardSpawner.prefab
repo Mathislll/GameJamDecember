@@ -48,4 +48,7 @@ MonoBehaviour:
   - {fileID: 2209668218949417243, guid: d7917ae200150ca49bb579b21d768ed0, type: 3}
   - {fileID: 2209668218949417243, guid: 5cb2f1cb8be5205489bab52d6499b5d7, type: 3}
   - {fileID: 2651968439097190799, guid: fdd39d0aa5ade5b45b98ab12230e44cf, type: 3}
-  timeBetweenPillard: 2
+  boss: {fileID: 1993169723353301119, guid: eb33752f27045a94195667c9fb32808d, type: 3}
+  timeBetweenPillard: 1.8
+  timeBeforeBoss: 5
+  speedObstacle: 240

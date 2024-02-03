@@ -106,6 +106,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level_01");
     }
 
+    public void RestartEndless()
+    {
+        actualScore = 0;
+        SceneManager.LoadScene("Level_Endless");
+    }
+
     IEnumerator WaitForLevel()
     {
         yield return new WaitForSeconds(5f); // Attend 5 secondes
